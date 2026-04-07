@@ -1,0 +1,2215 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toro Mecánico - Servicios</title>
+    
+    <!-- Agregando el favicon -->
+    <link rel="icon" type="image/webp" href="arriendo-toro-mecanico.webp">
+    <style>
+          /* Variables globales */
+        :root {
+            --primary-color: #37c8cc;
+            --secondary-color: #f8375d;
+            --accent-color: #d0df57;
+            --light-bg: #ebf2f3;
+            --dark-blue: #072a4d;
+            --text-color: #58444d;
+            --white: #ffffff;
+            --light-gray: #f7f7f7;
+            --footer-bg: #000000;
+            --footer-text: #999999;
+        }
+
+        /* Estilos generales */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--white);
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Muli', sans-serif;
+            font-weight: 300;
+            color: var(--dark-blue);
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--primary-color);
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--secondary-color);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        
+        /* Nuevo estilo de encabezado */
+        header {
+            background-color: #51393C;
+            padding: 20px;
+            width: 100%;
+        }
+        
+        .navigation {
+            display: flex;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .logo-container {
+            width: 30%;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo {
+            width: 180px;
+            height: 180px;
+            display: block;
+        }
+        
+        .header-content {
+            width: 70%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .header-title {
+            color: white;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-align: center;
+            font-weight: 700;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+        
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 21px;
+            cursor: pointer;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .menu-toggle span {
+            height: 3px;
+            width: 100%;
+            background-color: white;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+        
+        .main-nav {
+            width: 100%;
+            display: flex;
+            justify-content: flex-end;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            display: block;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-link:hover {
+            color: #ff6b6b;
+        }
+        
+        /* Estilos para submenús */
+        .has-submenu {
+            position: relative;
+        }
+        
+        .submenu {
+            display: none;
+            background-color: #51393C;
+            position: absolute;
+            min-width: 200px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            z-index: 10;
+            padding: 10px 0;
+        }
+        
+        .submenu li {
+            width: 100%;
+        }
+        
+        .submenu .nav-link {
+            padding: 10px 20px;
+        }
+        
+        .has-submenu:hover .submenu {
+            display: block;
+        }
+        
+        /* Estilos para pantallas más pequeñas */
+        @media screen and (max-width: 992px) {
+            .logo-container {
+                width: 100%;
+                justify-content: center;
+                margin-bottom: 10px;
+            }
+            
+            .header-content {
+                width: 100%;
+            }
+            
+            .nav-menu {
+                position: fixed;
+                top: 220px; /* Altura del header */
+                left: -100%;
+                flex-direction: column;
+                background-color: #51393C;
+                width: 100%;
+                height: calc(100vh - 220px);
+                overflow-y: auto;
+                transition: 0.3s;
+                z-index: 999;
+            }
+            
+            .nav-menu.active {
+                left: 0;
+            }
+            
+            .nav-link {
+                padding: 15px 20px;
+                font-size: 18px;
+                border-bottom: 1px solid rgba(255,255,255,0.1);
+            }
+            
+            .menu-toggle {
+                display: flex;
+                margin-top: 10px;
+                margin-bottom: 10px;
+            }
+            
+            /* Cambios para el menú hamburguesa activo */
+            .menu-toggle.active span:nth-child(1) {
+                transform: translateY(9px) rotate(45deg);
+            }
+            
+            .menu-toggle.active span:nth-child(2) {
+                opacity: 0;
+            }
+            
+            .menu-toggle.active span:nth-child(3) {
+                transform: translateY(-9px) rotate(-45deg);
+            }
+            
+            /* Cambios para submenús en móvil */
+            .submenu {
+                position: static;
+                display: none;
+                box-shadow: none;
+                background-color: #433033;
+                padding: 0;
+            }
+            
+            .has-submenu {
+                position: relative;
+            }
+            
+            .submenu-toggle {
+                position: absolute;
+                right: 20px;
+                top: 15px;
+                color: white;
+                font-size: 18px;
+                cursor: pointer;
+                /* Centrar horizontalmente el icono del acordeón */
+                left: 50%;
+                transform: translateX(-50%);
+                display: flex;
+                justify-content: center;
+                width: 30px;
+            }
+            
+            .submenu .nav-link {
+                padding-left: 40px;
+            }
+            
+            .has-submenu.active .submenu {
+                display: block;
+            }
+            
+            .logo {
+                width: 140px;
+                height: 140px;
+            }
+        }
+        
+        @media screen and (max-width: 576px) {
+            .logo {
+                width: 100px;
+                height: 100px;
+            }
+            
+            .nav-menu {
+                top: 140px;
+                height: calc(100vh - 140px);
+            }
+        }
+        
+        /* ESTILOS ACTUALIZADOS PARA LA SECCIÓN HERO */
+        .hero-container {
+            width: 100%;
+            margin-bottom: 40px;
+        }
+        
+        .hero-wrapper {
+            position: relative;
+            width: 100%;
+            height: 500px;
+            overflow: hidden;
+        }
+        
+        .hero-background-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: transform 0.5s ease;
+        }
+        
+        .hero-wrapper:hover .hero-background-img {
+            transform: scale(1.05); /* Efecto sutil de zoom al pasar el mouse */
+        }
+        
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+        }
+        
+        .hero-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            max-width: 800px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+        }
+        
+        .hero-contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            align-items: center;
+        }
+        
+        .hero-contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .hero-contact-item a {
+            display: flex;
+            align-items: center;
+            color: white;
+            text-decoration: none;
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .hero-contact-item a:hover {
+            transform: translateY(-3px);
+        }
+        
+        .hero-contact-item i {
+            font-size: 2rem;
+            margin-right: 15px;
+        }
+        
+        .hero-contact-item span {
+            font-size: 1.5rem;
+            font-weight: 500;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+        }
+        
+        .hero-description {
+            color: white;
+            font-size: 1.2rem;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+            text-align: center;
+            margin-top: 15px;
+            max-width: 80%;
+            line-height: 1.4;
+        }
+        
+        .hero-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 10px;
+            font-size: 1rem;
+            text-align: center;
+            z-index: 10;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .hero-wrapper:hover .hero-caption {
+            opacity: 1; /* Muestra la leyenda al pasar el mouse, como en la galería */
+        }
+        
+        /* MANTENER LOS ESTILOS HEREDADOS DEL HERO ANTERIOR PARA COMPATIBILIDAD */
+        .hero {
+            background-image: none; /* No usar imagen de fondo directamente - ahora usamos <img> */
+            background-size: cover;
+            background-position: center;
+            height: 500px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            position: relative;
+            margin-bottom: 40px;
+        }
+        
+        /* FIN DE ESTILOS ACTUALIZADOS DEL HERO */
+        
+        .btn {
+            display: inline-block;
+            background-color: #ff6b6b;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #ff5252;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2.5rem;
+            color: #ff6b6b;
+        }
+        
+        .services-section {
+            background-color: #f5f5f5;
+            padding: 60px 0;
+            margin-bottom: 40px;
+        }
+        
+        .section-title-small {
+            text-align: center;
+            color: #4a90a0;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 2.5rem;
+            color: #2c3e50;
+            font-weight: 700;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.8rem;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-weight: 400;
+        }
+        
+        .section-location {
+            text-align: center;
+            font-size: 1.4rem;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            font-weight: 400;
+        }
+        
+        .service-description {
+            max-width: 900px;
+            margin: 0 auto 40px;
+            text-align: center;
+            line-height: 1.7;
+            color: #666;
+            font-size: 1.1rem;
+        }
+        
+        .service-description p {
+            margin-bottom: 15px;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .service-card {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            background-color: white;
+            min-height: 280px;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .service-image-container {
+            position: relative;
+            height: 280px;
+            overflow: hidden;
+        }
+        
+        .service-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+         /* 
+        .service-title {
+            position: absolute;
+            top: 20px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+            z-index: 2;
+            padding: 0 15px;
+        }*/
+        /* Estilos para la galería de Instagram */
+.gallery-section {
+    background-color: #f8f9fa;
+    padding: 60px 0;
+    margin-bottom: 40px;
+}
+
+.instagram-gallery {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.instagram-header {
+    background: #FFFFFF;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.instagram-header-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+}
+
+.instagram-header-text {
+    display: flex;
+    align-items: center;
+}
+
+.instagram-header-hashtag-icon {
+    margin-right: 15px;
+}
+
+.instagram-logo {
+    width: 40px;
+    height: 40px;
+    color: #E4405F;
+}
+
+.instagram-feedtheme-header-text h3 {
+    margin: 0;
+    color: #333;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.instagram-gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.instagram-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    transition: transform 0.3s ease;
+}
+
+.instagram-item:hover {
+    transform: translateY(-5px);
+}
+
+.instagram-photo-wrap {
+    position: relative;
+    width: 100%;
+    height: 280px;
+    overflow: hidden;
+}
+
+.instagram-photo {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    text-decoration: none;
+}
+
+.instagram-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.instagram-item:hover .instagram-photo img {
+    transform: scale(1.05);
+}
+
+.instagram-play-btn,
+.instagram-carousel-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60px;
+    height: 60px;
+    color: rgba(255, 255, 255, 0.9);
+    z-index: 2;
+    pointer-events: none;
+}
+
+.instagram-screenreader {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+.instagram-load-more {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.instagram-follow-btn {
+    background-color: #E4405F;
+    color: white;
+    padding: 15px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.instagram-follow-btn:hover {
+    background-color: #d63384;
+    transform: translateY(-2px);
+    color: white;
+}
+
+.instagram-follow-btn .instagram-logo {
+    width: 24px;
+    height: 24px;
+    color: white;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .instagram-gallery-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 15px;
+    }
+    
+    .instagram-photo-wrap {
+        height: 250px;
+    }
+    
+    .instagram-header {
+        padding: 15px;
+    }
+    
+    .instagram-feedtheme-header-text h3 {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .instagram-gallery-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .instagram-photo-wrap {
+        height: 220px;
+    }
+}
+        .service-title {
+            top: 20px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-shadow: 
+                2px 2px 5px rgba(0,0,0,0.8),
+                -1px -1px 2px rgba(0,0,0,0.5);
+        }
+        .service-description-overlay {
+            bottom: 70px;
+            font-size: 1rem;
+            background-color: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(4px);
+            border-radius: 6px;
+            padding: 10px 15px;
+            margin: 0 20px;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.8);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            border: 1px solid rgba(255,255,255,0.1);
+            max-width: calc(100% - 40px);
+        }
+
+        /* 
+        
+        .service-description-overlay {
+            position: absolute;
+            bottom: 70px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            color: white;
+            padding: 0 15px;
+            font-size: 1rem;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+            z-index: 2;
+        }
+        .service-title, .service-description-overlay {
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        }*/
+        .service-title, .service-description-overlay {
+            position: absolute;
+            left: 0;
+            right: 0;
+            text-align: center;
+            color: white;
+            z-index: 2;
+            padding: 0 15px;
+        }
+
+        .service-image-container::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0) 50%, rgba(0,0,0,0.2) 100%);
+            z-index: 1;        
+        }
+        
+        .service-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            padding: 15px;
+            background-color: white;
+        }
+        /* Estilos para los botones de la galería */
+        .gallery-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            padding: 15px;
+            background-color: white;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 2;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .gallery-item:hover .gallery-buttons {
+            opacity: 1;
+        }    
+        .btn-service {
+            padding: 8px 15px;
+            font-size: 0.9rem;
+            background-color: #4fbfba;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            text-decoration: none;
+            text-align: center;
+            font-weight: 500;
+        }
+        
+        .btn-service:hover {
+            background-color: #3da8a4;
+        }
+        
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 60px;
+            justify-items: center; /* Centra los items horizontalmente */
+        }
+        /* INICIO*/
+        /* Estilos para los precios de los packs */
+        .pack-price {
+            background-color: #f8375d;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            display: inline-block;
+            text-align: center;
+            width: auto;
+            min-width: 100px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            margin-top: 5px;
+        }
+
+        /* Estilos para las secciones de beneficios */
+        .benefits-section {
+            background-color: #f8f9fa;
+            padding: 60px 0;
+            margin: 50px 0;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .benefit-item {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .benefit-icon {
+            font-size: 3rem;
+            color: #4fbfba;
+            margin-bottom: 20px;
+        }
+
+        .benefit-item h4 {
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+
+        /* Estilos para la sección de comunas */
+        .comunas-section {
+            background-color: white;
+            padding: 60px 0;
+            margin: 50px 0;
+        }
+
+        .comunas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .comuna-item {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            text-align: center;
+            border-left: 4px solid #4fbfba;
+            transition: all 0.3s;
+        }
+
+        .comuna-item:hover {
+            background-color: #4fbfba;
+            color: white;
+        }
+
+        /* Estilos para las preguntas frecuentes */
+        .faq-section {
+            padding: 60px 0;
+            background-color: #f8f9fa;
+        }
+
+        .faq-item {
+            background: white;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .faq-question {
+            background: #4fbfba;
+            color: white;
+            padding: 20px;
+            margin: 0;
+            cursor: pointer;
+        }
+
+        .faq-answer {
+            padding: 20px;
+            margin: 0;
+        }
+
+        /* Estilos para la sección de tipos de eventos */
+        .events-section {
+            padding: 40px 0;
+            background-color: white;
+        }
+
+        .eventos-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .evento-card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            padding: 25px;
+            text-align: center;
+            transition: transform 0.3s;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .evento-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .evento-icon {
+            font-size: 2.5rem;
+            color: #4fbfba;
+            margin-bottom: 15px;
+        }
+
+        .evento-card h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .evento-card p {
+            color: #666;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .btn-evento {
+            display: inline-block;
+            background-color: #4fbfba;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            margin-top: auto;
+        }
+
+        .btn-evento:hover {
+            background-color: #3da8a4;
+        }
+
+        @media screen and (max-width: 992px) {
+            .eventos-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media screen and (max-width: 576px) {
+            .eventos-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        /* Estilos adicionales para info */
+        .info-section {
+            padding: 60px 0;
+            background-color: white;
+        }
+
+        .info-card {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .info-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .info-list li {
+            margin-bottom: 10px;
+        }
+
+        .info-list i {
+            color: #4fbfba;
+            margin-right: 10px;
+        }
+        /* FIN*/
+        /* .gallery-item {
+            height: 250px;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            position: relative;
+        } */
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            background-color: white;
+            /* padding-bottom: 60px; Espacio para los botones 
+            margin-bottom: 30px;*/
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            max-width: 350px;
+        }
+        .gallery-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+        
+        .gallery-item:hover .gallery-img {
+            transform: scale(1.1);
+        }
+        .gallery-container {
+            background-color: white;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 8px;
+            font-size: 0.9rem;
+            opacity: 0;
+                /* Elimina la transición y el hover si ya no los necesitas */
+        }
+
+/* Elimina esta parte completamente */
+/* .gallery-item:hover .gallery-caption {
+    opacity: 1;
+} */
+        }
+        
+        .gallery-item:hover .gallery-caption {
+            opacity: 1;
+        }
+        
+        .testimonials {
+            background-color: #fff;
+            padding: 60px 0;
+            margin-bottom: 60px;
+        }
+        
+        .testimonial-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .testimonial {
+            padding: 20px;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+            line-height: 1.6;
+        }
+        
+        .testimonial-author {
+            font-weight: bold;
+            color: #ff6b6b;
+        }
+        
+        .contact {
+            margin-bottom: 60px;
+        }
+        
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .contact-card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        
+        .contact-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .contact-icon {
+            font-size: 2.5rem;
+            color: #4fbfba;
+            margin-bottom: 20px;
+            transition: color 0.3s ease;
+        }
+        
+        .contact-card h3 {
+            margin-bottom: 15px;
+            color: #ff6b6b;
+        }
+        
+        .contact-card:hover .contact-icon {
+            color: #ff6b6b;
+        }
+        
+        .map {
+            height: 400px;
+            margin-top: 40px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        .social-icons {
+            margin-bottom: 20px;
+        }
+        
+        .social-icon {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: #ff6b6b;
+            border-radius: 50%;
+            margin: 0 10px;
+            color: white;
+            line-height: 40px;
+            font-size: 1.2rem;
+            text-decoration: none;
+        }
+        
+        .social-icon:hover {
+            background-color: #ff5252;
+        }
+        
+        .footer-links {
+            margin-bottom: 20px;
+        }
+        
+        .footer-link {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-link:hover {
+            color: #ff6b6b;
+        }
+        
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25d366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            z-index: 100;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+        }
+        
+        .whatsapp-float:hover {
+            background-color: #128C7E;
+        }
+        
+        /* Estilos adicionales para pantallas más pequeñas */
+        @media screen and (max-width: 768px) {
+            .hero-wrapper {
+                height: 450px;
+            }
+             .service-description-overlay {
+                padding: 8px 12px;
+                font-size: 0.9rem;
+                backdrop-filter: blur(2px);
+                margin: 0 10px;
+            }
+            .hero-contact-item a {
+                font-size: 1.2rem;
+            }
+            
+            .hero-contact-item i {
+                font-size: 1.6rem;
+                margin-right: 10px;
+            }
+            
+            .hero-contact-item span {
+                font-size: 1.2rem;
+            }
+            
+            .hero-description {
+                font-size: 1.1rem;
+                max-width: 90%;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .section-subtitle {
+                font-size: 1.4rem;
+            }
+            
+            .section-location {
+                font-size: 1.1rem;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .service-buttons {
+                flex-direction: column;
+            }
+        }
+        
+        @media screen and (max-width: 576px) {
+            .hero-wrapper {
+                height: 400px;
+            }
+            
+            .hero-contact-item a {
+                font-size: 1.1rem;
+            }
+            
+            .hero-contact-item i {
+                font-size: 1.4rem;
+            }
+            
+            .hero-description {
+                font-size: 1rem;
+                max-width: 95%;
+            }
+            
+            .hero-caption {
+                padding: 8px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+</head>
+<body>
+    <!-- Botón flotante de WhatsApp -->
+    <a href="https://wa.me/+56TUNUMERO" class="whatsapp-float" target="_blank" aria-label="Contactar por WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Encabezado mejorado -->
+    <header>
+        <div class="navigation">
+            <div class="logo-container">
+                <img src="arriendo-toro-mecanico.webp" 
+                    alt="Logo de Toro Mecánico Eventos - Arriendo de toro mecanico en Santiago" 
+                    class="logo" 
+                    title="Toro Mecánico Eventos - Prende Tu Fiesta">
+            </div>
+            <div class="header-content">
+                <h1 class="header-title">TORO MECÁNICO</h1>
+                <div class="menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <nav class="main-nav">
+                    <ul class="nav-menu">
+                        <li><a href="index.html" class="nav-link">HOME</a></li>
+                        <li class="has-submenu">
+                            <a href="nosotros.html" class="nav-link">NOSOTROS</a>
+                            <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                            <ul class="submenu">
+                                <li><a href="nosotros.html#nuestra-historia" class="nav-link">Nuestra Historia</a></li>
+                                <li><a href="nosotros.html#valores" class="nav-link">Valores</a></li>
+                                <li><a href="nosotros.html#testimonios" class="nav-link">Testimonios</a></li>
+                            </ul>
+                        </li>
+                        <li class="has-submenu">
+                            <a href="todos-los-juegos.html" class="nav-link">JUEGOS ARRIENDO</a>
+                            <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                            <ul class="submenu">
+                                <li><a href="todos-los-juegos.html" class="nav-link">Todos los Juegos</a></li>
+                                <li><a href="juegos-infantiles-niños.html" class="nav-link">Juegos Infantiles</a></li>
+                                            <li><a href="juegos-adultos.html" class="nav-link">Juegos para Adultos</a></li>
+                                        </ul>
+                        </li>
+                        <li class="has-submenu">
+                            <a href="juegos/toro-mecanico/" class="nav-link">TORO MECÁNICO ARRIENDO</a>
+                            <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                            <ul class="submenu">
+                                <li><a href="juegos/toro-mecanico/" class="nav-link">Modelos Disponibles</a></li>
+                                <li><a href="juegos/toro-mecanico/" class="nav-link">Precios y Paquetes</a></li>
+                                <li><a href="https://wa.me/+56989639573?text=Quiero%20reservar%20el%20Toro%20Mecánico" class="nav-link" target="_blank">Reserva Ahora</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="eliminador.html" class="nav-link">ELIMINADOR 5 METROS</a></li>
+                        <li><a href="galeria.html" class="nav-link">GALERÍA</a></li>
+                        <li><a href="todos-los-juegos.html" class="nav-link">BLOG JUEGOS</a></li>
+                        <li><a href="https://wa.me/+56989639573?text=Hola,%20necesito%20información%20sobre%20sus%20servicios" class="nav-link" target="_blank">CONTACTO</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <!-- Sección Hero mejorada con estructura similar a gallery-item -->
+    <section class="hero-container">
+        <!-- Contenedor principal similar a gallery-item -->
+        <div class="hero-wrapper">
+            <!-- Imagen de fondo con alt y title -->
+            <img 
+                src="toro-mecanico-santiago.webp" 
+                alt="Toro mecánico para arriendo en eventos y fiestas en Santiago" 
+                class="hero-background-img"
+                title="Servicio de arriendo de toro mecánico para eventos en Santiago"
+            >
+            
+            <!-- Overlay para mejorar visibilidad del texto -->
+            <div class="hero-overlay"></div>
+            
+            <!-- Contenido del hero -->
+            <div class="hero-content">
+                <div class="hero-contact-info">
+                    <div class="hero-contact-item">
+                        <a href="https://www.instagram.com/toromecanicostgo/" target="_blank" aria-label="Síguenos en Instagram">
+                            <i class="fab fa-instagram"></i>
+                            <span>@TOROMECANICOSTGO</span>
+                        </a>
+                    </div>
+                    <div class="hero-contact-item">
+                        <a href="mailto:info@prendetufiesta.cl" aria-label="Envíanos un correo electrónico">
+                            <i class="far fa-envelope"></i>
+                            <span>info@prendetufiesta.cl</span>
+                        </a>
+                    </div>
+                    <div class="hero-contact-item">
+                        <a href="tel:+56989639573" aria-label="Llámanos por teléfono">
+                            <i class="fas fa-phone"></i>
+                            <span>+569 8963 9573</span>
+                        </a>
+                    </div>
+                </div>
+                <p class="hero-description">
+                    Disfruta con el arriendo del popular juego del toro mecánico en Santiago
+                </p>
+            </div>
+            
+            <!-- Caption similar a gallery-caption -->
+            <div class="hero-caption">Toro mecánico profesional para eventos - Disponible en toda la Región Metropolitana</div>
+        </div>
+    </section>
+    
+<!-- Sección de Galería Instagram -->
+<section class="gallery-section">
+    <div class="container">
+        <div class="instagram-gallery">
+            <div class="instagram-header">
+                <a class="instagram-header-link" target="_blank" rel="nofollow noopener" href="https://www.instagram.com/toromecanicostgo/" title="@toromecanicostgo">
+                    <div class="instagram-header-text">
+                        <div class="instagram-header-img">
+                            <div class="instagram-header-hashtag-icon">
+                                <svg class="instagram-logo" aria-hidden="true" data-prefix="fab" data-icon="instagram" role="img" viewBox="0 0 448 512">
+                                    <path fill="currentColor" d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"></path>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="instagram-feedtheme-header-text">
+                            <h3>@toromecanicostgo</h3>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="instagram-gallery-grid">
+                <!-- Imagen 1 - Video -->
+                <div class="instagram-item video-item">
+                    <div class="instagram-photo-wrap">
+                        <a class="instagram-photo" href="https://www.instagram.com/reel/C0rwJdZrdyB/" target="_blank" rel="noopener nofollow">
+                            <span class="instagram-screenreader">#toromecanico #toromecanicosantiago #torogala</span>
+                            <svg class="instagram-play-btn" aria-label="Play" role="presentation" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                <path fill="currentColor" d="M424.4 214.7L72.4 6.6C43.8-10.3 0 6.1 0 47.9V464c0 37.5 40.7 60.1 72.4 41.3l352-208c31.4-18.5 31.5-64.1 0-82.6z"></path>
+                            </svg>
+                            <img src="Arriendo-Arcade.webp" alt="#toromecanico #toromecanicosantiago #torogala">
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Imagen 2 - Video Tabla de Surf -->
+                <div class="instagram-item video-item">
+                    <div class="instagram-photo-wrap">
+                        <a class="instagram-photo" href="https://www.instagram.com/reel/C0fxLD6r9bu/" target="_blank" rel="noopener nofollow">
+                            <span class="instagram-screenreader">Tabla de surf mecánica #juegosmecanicos</span>
+                            <svg class="instagram-play-btn" aria-label="Play" role="presentation" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                <path fill="currentColor" d="M424.4 214.7L72.4 6.6C43.8-10.3 0 6.1 0 47.9V464c0 37.5 40.7 60.1 72.4 41.3l352-208c31.4-18.5 31.5-64.1 0-82.6z"></path>
+                            </svg>
+                            <img src="Tabla-de-Surf.webp" alt="Tabla de surf mecánica #juegosmecanicos #tabladesurfmecanica">
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Imagen 3 - Video Evento Corporativo -->
+                <div class="instagram-item video-item">
+                    <div class="instagram-photo-wrap">
+                        <a class="instagram-photo" href="https://www.instagram.com/reel/C0eqzXxLUOf/" target="_blank" rel="noopener nofollow">
+                            <span class="instagram-screenreader">Evento empresa #toromecanico #espejomagico</span>
+                            <svg class="instagram-play-btn" aria-label="Play" role="presentation" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                <path fill="currentColor" d="M424.4 214.7L72.4 6.6C43.8-10.3 0 6.1 0 47.9V464c0 37.5 40.7 60.1 72.4 41.3l352-208c31.4-18.5 31.5-64.1 0-82.6z"></path>
+                            </svg>
+                            <img src="CabinaFotográfica.webp" alt="Evento empresa #toromecanico #espejomagico #tacatacaxl #arcade">
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Imagen 4 - Video Eliminador -->
+                <div class="instagram-item video-item">
+                    <div class="instagram-photo-wrap">
+                        <a class="instagram-photo" href="https://www.instagram.com/reel/C0U1ZMeram8/" target="_blank" rel="noopener nofollow">
+                            <span class="instagram-screenreader">Eliminador, taca taca 8 jugadores, mesa de hockey.</span>
+                            <svg class="instagram-play-btn" aria-label="Play" role="presentation" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                <path fill="currentColor" d="M424.4 214.7L72.4 6.6C43.8-10.3 0 6.1 0 47.9V464c0 37.5 40.7 60.1 72.4 41.3l352-208c31.4-18.5 31.5-64.1 0-82.6z"></path>
+                            </svg>
+                            <img src="Cabina-Fotográfica.webp" alt="Eliminador, taca taca 8 jugadores, mesa de hockey">
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Imagen 5 - Video Cámara 360 -->
+                <div class="instagram-item video-item">
+                    <div class="instagram-photo-wrap">
+                        <a class="instagram-photo" href="https://www.instagram.com/reel/Czw-HIqLXEW/" target="_blank" rel="noopener nofollow">
+                            <span class="instagram-screenreader">Cámara 360 #eventos #camara360</span>
+                            <svg class="instagram-play-btn" aria-label="Play" role="presentation" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                <path fill="currentColor" d="M424.4 214.7L72.4 6.6C43.8-10.3 0 6.1 0 47.9V464c0 37.5 40.7 60.1 72.4 41.3l352-208c31.4-18.5 31.5-64.1 0-82.6z"></path>
+                            </svg>
+                            <img src="Camara360.webp" alt="Cámara 360 #eventos #camara360santiago">
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Imagen 6 - Video ENAP -->
+                <div class="instagram-item video-item">
+                    <div class="instagram-photo-wrap">
+                        <a class="instagram-photo" href="https://www.instagram.com/reel/CzWxinxrNSO/" target="_blank" rel="noopener nofollow">
+                            <span class="instagram-screenreader">Evento ENAP #toromecanico #toromecanicosantiago</span>
+                            <svg class="instagram-play-btn" aria-label="Play" role="presentation" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                <path fill="currentColor" d="M424.4 214.7L72.4 6.6C43-8-10.3 0 6.1 0 47.9V464c0 37.5 40.7 60.1 72.4 41.3l352-208c31.4-18.5 31.5-64.1 0-82.6z"></path>
+                            </svg>
+                            <img src="camara-360.webp" alt="Evento ENAP #toromecanico #toromecanicosantiago">
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Imagen 7 - Video Toro Mecánico -->
+                <div class="instagram-item video-item">
+                    <div class="instagram-photo-wrap">
+                        <a class="instagram-photo" href="https://www.instagram.com/reel/Cy2JNqHLt3g/" target="_blank" rel="noopener nofollow">
+                            <span class="instagram-screenreader">#toromecanico #toromecanicosantiago</span>
+                            <svg class="instagram-play-btn" aria-label="Play" role="presentation" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                <path fill="currentColor" d="M424.4 214.7L72.4 6.6C43.8-10.3 0 6.1 0 47.9V464c0 37.5 40.7 60.1 72.4 41.3l352-208c31.4-18.5 31.5-64.1 0-82.6z"></path>
+                            </svg>
+                            <img src="Chispa-Fria.webp" alt="#toromecanico #toromecanicosantiago">
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Imagen 8 - Imagen Carousel -->
+                <div class="instagram-item carousel-item">
+                    <div class="instagram-photo-wrap">
+                        <a class="instagram-photo" href="https://www.instagram.com/p/CxPH04xr8Pk/" target="_blank" rel="noopener nofollow">
+                            <span class="instagram-screenreader">Evento Lo Barnechea #toromecanico</span>
+                            <svg class="instagram-carousel-icon" aria-hidden="true" data-prefix="far" data-icon="clone" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                <path fill="currentColor" d="M464 0H144c-26.51 0-48 21.49-48 48v48H48c-26.51 0-48 21.49-48 48v320c0 26.51 21.49 48 48 48h320c26.51 0 48-21.49 48-48v-48h48c26.51 0 48-21.49 48-48V48c0-26.51-21.49-48-48-48zM362 464H54a6 6 0 0 1-6-6V150a6 6 0 0 1 6-6h42v224c0 26.51 21.49 48 48 48h224v42a6 6 0 0 1-6 6zm96-96H150a6 6 0 0 1-6-6V54a6 6 0 0 1 6-6h308a6 6 0 0 1 6 6v308a6 6 0 0 1-6 6z"></path>
+                            </svg>
+                            <img src="Eliminador-7-metros.webp" alt="Evento Lo Barnechea #toromecanico #toromecanicosantiago">
+                        </a>
+                    </div>
+                </div>
+                <!-- Imagen 9 - Video -->
+                <div class="instagram-item video-item">
+                    <div class="instagram-photo-wrap">
+                        <a class="instagram-photo" href="https://www.instagram.com/reel/C0rwJdZrdyB/" target="_blank" rel="noopener nofollow">
+                            <span class="instagram-screenreader">#toromecanico #toromecanicosantiago #torogala</span>
+                            <svg class="instagram-play-btn" aria-label="Play" role="presentation" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                <path fill="currentColor" d="M424.4 214.7L72.4 6.6C43.8-10.3 0 6.1 0 47.9V464c0 37.5 40.7 60.1 72.4 41.3l352-208c31.4-18.5 31.5-64.1 0-82.6z"></path>
+                            </svg>
+                            <img src="Ganesela-al-Toro.webp" alt="#toromecanico #toromecanicosantiago #torogala">
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Imagen 10 - Video Tabla de Surf -->
+                <div class="instagram-item video-item">
+                    <div class="instagram-photo-wrap">
+                        <a class="instagram-photo" href="https://www.instagram.com/reel/C0fxLD6r9bu/" target="_blank" rel="noopener nofollow">
+                            <span class="instagram-screenreader">Tabla de surf mecánica #juegosmecanicos</span>
+                            <svg class="instagram-play-btn" aria-label="Play" role="presentation" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                <path fill="currentColor" d="M424.4 214.7L72.4 6.6C43.8-10.3 0 6.1 0 47.9V464c0 37.5 40.7 60.1 72.4 41.3l352-208c31.4-18.5 31.5-64.1 0-82.6z"></path>
+                            </svg>
+                            <img src="Arriendo-Toro-Mecanico-Santiago.webp" alt="Tabla de surf mecánica #juegosmecanicos #tabladesurfmecanica">
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Imagen 11 - Video Evento Corporativo -->
+                <div class="instagram-item video-item">
+                    <div class="instagram-photo-wrap">
+                        <a class="instagram-photo" href="https://www.instagram.com/reel/C0eqzXxLUOf/" target="_blank" rel="noopener nofollow">
+                            <span class="instagram-screenreader">Evento empresa #toromecanico #espejomagico</span>
+                            <svg class="instagram-play-btn" aria-label="Play" role="presentation" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                <path fill="currentColor" d="M424.4 214.7L72.4 6.6C43.8-10.3 0 6.1 0 47.9V464c0 37.5 40.7 60.1 72.4 41.3l352-208c31.4-18.5 31.5-64.1 0-82.6z"></path>
+                            </svg>
+                            <img src="Mesa-Air-Jockey.webp" alt="Evento empresa #toromecanico #espejomagico #tacatacaxl #arcade">
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Imagen 12 - Video Eliminador -->
+                <div class="instagram-item video-item">
+                    <div class="instagram-photo-wrap">
+                        <a class="instagram-photo" href="https://www.instagram.com/reel/C0U1ZMeram8/" target="_blank" rel="noopener nofollow">
+                            <span class="instagram-screenreader">Eliminador, taca taca 8 jugadores, mesa de hockey.</span>
+                            <svg class="instagram-play-btn" aria-label="Play" role="presentation" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                <path fill="currentColor" d="M424.4 214.7L72.4 6.6C43.8-10.3 0 6.1 0 47.9V464c0 37.5 40.7 60.1 72.4 41.3l352-208c31.4-18.5 31.5-64.1 0-82.6z"></path>
+                            </svg>
+                            <img src="Precio-Toro-Mecanico.webp" alt="Eliminador, taca taca 8 jugadores, mesa de hockey">
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Imagen 13 - Video Cámara 360 -->
+                <div class="instagram-item video-item">
+                    <div class="instagram-photo-wrap">
+                        <a class="instagram-photo" href="https://www.instagram.com/reel/Czw-HIqLXEW/" target="_blank" rel="noopener nofollow">
+                            <span class="instagram-screenreader">Cámara 360 #eventos #camara360</span>
+                            <svg class="instagram-play-btn" aria-label="Play" role="presentation" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                <path fill="currentColor" d="M424.4 214.7L72.4 6.6C43.8-10.3 0 6.1 0 47.9V464c0 37.5 40.7 60.1 72.4 41.3l352-208c31.4-18.5 31.5-64.1 0-82.6z"></path>
+                            </svg>
+                            <img src="Tabla-de-Surf.webp" alt="Cámara 360 #eventos #camara360santiago">
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Imagen 14 - Video ENAP -->
+                <div class="instagram-item video-item">
+                    <div class="instagram-photo-wrap">
+                        <a class="instagram-photo" href="https://www.instagram.com/reel/CzWxinxrNSO/" target="_blank" rel="noopener nofollow">
+                            <span class="instagram-screenreader">Evento ENAP #toromecanico #toromecanicosantiago</span>
+                            <svg class="instagram-play-btn" aria-label="Play" role="presentation" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                <path fill="currentColor" d="M424.4 214.7L72.4 6.6C43-8-10.3 0 6.1 0 47.9V464c0 37.5 40.7 60.1 72.4 41.3l352-208c31.4-18.5 31.5-64.1 0-82.6z"></path>
+                            </svg>
+                            <img src="Toro-Tabla-Eliminador.webp" alt="Evento ENAP #toromecanico #toromecanicosantiago">
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Imagen 15 - Video Toro Mecánico -->
+                <div class="instagram-item video-item">
+                    <div class="instagram-photo-wrap">
+                        <a class="instagram-photo" href="https://www.instagram.com/reel/Cy2JNqHLt3g/" target="_blank" rel="noopener nofollow">
+                            <span class="instagram-screenreader">#toromecanico #toromecanicosantiago</span>
+                            <svg class="instagram-play-btn" aria-label="Play" role="presentation" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                <path fill="currentColor" d="M424.4 214.7L72.4 6.6C43.8-10.3 0 6.1 0 47.9V464c0 37.5 40.7 60.1 72.4 41.3l352-208c31.4-18.5 31.5-64.1 0-82.6z"></path>
+                            </svg>
+                            <img src="Taca-Taca.webp" alt="#toromecanico #toromecanicosantiago">
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Imagen 16 - Imagen Carousel -->
+                <div class="instagram-item carousel-item">
+                    <div class="instagram-photo-wrap">
+                        <a class="instagram-photo" href="https://www.instagram.com/p/CxPH04xr8Pk/" target="_blank" rel="noopener nofollow">
+                            <span class="instagram-screenreader">Evento Lo Barnechea #toromecanico</span>
+                            <svg class="instagram-carousel-icon" aria-hidden="true" data-prefix="far" data-icon="clone" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                <path fill="currentColor" d="M464 0H144c-26.51 0-48 21.49-48 48v48H48c-26.51 0-48 21.49-48 48v320c0 26.51 21.49 48 48 48h320c26.51 0 48-21.49 48-48v-48h48c26.51 0 48-21.49 48-48V48c0-26.51-21.49-48-48-48zM362 464H54a6 6 0 0 1-6-6V150a6 6 0 0 1 6-6h42v224c0 26.51 21.49 48 48 48h224v42a6 6 0 0 1-6 6zm96-96H150a6 6 0 0 1-6-6V54a6 6 0 0 1 6-6h308a6 6 0 0 1 6 6v308a6 6 0 0 1-6 6z"></path>
+                            </svg>
+                            <img src="Toro-Inflable-Minions.webp" alt="Evento Lo Barnechea #toromecanico #toromecanicosantiago">
+                        </a>
+                    </div>
+                </div>
+                <!-- Imagen 17 - Video -->
+                <div class="instagram-item video-item">
+                    <div class="instagram-photo-wrap">
+                        <a class="instagram-photo" href="https://www.instagram.com/reel/C0rwJdZrdyB/" target="_blank" rel="noopener nofollow">
+                            <span class="instagram-screenreader">#toromecanico #toromecanicosantiago #torogala</span>
+                            <svg class="instagram-play-btn" aria-label="Play" role="presentation" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                <path fill="currentColor" d="M424.4 214.7L72.4 6.6C43.8-10.3 0 6.1 0 47.9V464c0 37.5 40.7 60.1 72.4 41.3l352-208c31.4-18.5 31.5-64.1 0-82.6z"></path>
+                            </svg>
+                            <img src="Toro-Mecanico.webp" alt="#toromecanico #toromecanicosantiago #torogala">
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Imagen 18 - Video Tabla de Surf -->
+                <div class="instagram-item video-item">
+                    <div class="instagram-photo-wrap">
+                        <a class="instagram-photo" href="https://www.instagram.com/reel/C0fxLD6r9bu/" target="_blank" rel="noopener nofollow">
+                            <span class="instagram-screenreader">Tabla de surf mecánica #juegosmecanicos</span>
+                            <svg class="instagram-play-btn" aria-label="Play" role="presentation" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                <path fill="currentColor" d="M424.4 214.7L72.4 6.6C43.8-10.3 0 6.1 0 47.9V464c0 37.5 40.7 60.1 72.4 41.3l352-208c31.4-18.5 31.5-64.1 0-82.6z"></path>
+                            </svg>
+                            <img src="Toro-Mecánico.webp" alt="Tabla de surf mecánica #juegosmecanicos #tabladesurfmecanica">
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Imagen 19 - Video Evento Corporativo -->
+                <div class="instagram-item video-item">
+                    <div class="instagram-photo-wrap">
+                        <a class="instagram-photo" href="https://www.instagram.com/reel/C0eqzXxLUOf/" target="_blank" rel="noopener nofollow">
+                            <span class="instagram-screenreader">Evento empresa #toromecanico #espejomagico</span>
+                            <svg class="instagram-play-btn" aria-label="Play" role="presentation" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                <path fill="currentColor" d="M424.4 214.7L72.4 6.6C43.8-10.3 0 6.1 0 47.9V464c0 37.5 40.7 60.1 72.4 41.3l352-208c31.4-18.5 31.5-64.1 0-82.6z"></path>
+                            </svg>
+                            <img src="Toro-Mecanico-Arriendo.webp" alt="Evento empresa #toromecanico #espejomagico #tacatacaxl #arcade">
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Imagen 20 - Video Eliminador -->
+                <div class="instagram-item video-item">
+                    <div class="instagram-photo-wrap">
+                        <a class="instagram-photo" href="https://www.instagram.com/reel/C0U1ZMeram8/" target="_blank" rel="noopener nofollow">
+                            <span class="instagram-screenreader">Eliminador, taca taca 8 jugadores, mesa de hockey.</span>
+                            <svg class="instagram-play-btn" aria-label="Play" role="presentation" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                <path fill="currentColor" d="M424.4 214.7L72.4 6.6C43.8-10.3 0 6.1 0 47.9V464c0 37.5 40.7 60.1 72.4 41.3l352-208c31.4-18.5 31.5-64.1 0-82.6z"></path>
+                            </svg>
+                            <img src="Toro-Mecanico-Niños.webp" alt="Eliminador, taca taca 8 jugadores, mesa de hockey">
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="instagram-load-more">
+                <a href="https://www.instagram.com/toromecanicostgo/" target="_blank" rel="nofollow noopener" class="instagram-follow-btn">
+                    <svg class="instagram-logo" aria-hidden="true" data-prefix="fab" data-icon="instagram" role="img" viewBox="0 0 448 512">
+                        <path fill="currentColor" d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"></path>
+                    </svg>
+                    <span>Ver más en Instagram</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+    
+<!-- Sección de beneficios -->
+<section class="benefits-section" id="por-que-elegirnos">
+    <div class="container">
+        <h2 class="section-title">¿Por qué elegir nuestro Toro Mecánico en Santiago?</h2>
+        <div class="benefits-grid">
+            <div class="benefit-item">
+                <div class="benefit-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h4>Máxima Seguridad</h4>
+                <p>Equipos certificados y operadores capacitados para garantizar la seguridad en cada evento en Santiago.</p>
+            </div>
+            <div class="benefit-item">
+                <div class="benefit-icon">
+                    <i class="fas fa-truck"></i>
+                </div>
+                <h4>Transporte Incluido</h4>
+                <p>Servicio de transporte, montaje y desmontaje incluido en todas las comunas de Santiago.</p>
+            </div>
+            <div class="benefit-item">
+                <div class="benefit-icon">
+                    <i class="fas fa-clock"></i>
+                </div>
+                <h4>Puntualidad</h4>
+                <p>Llegamos 45 minutos antes del evento para instalar y revisar todo el equipo.</p>
+            </div>
+            <div class="benefit-item">
+                <div class="benefit-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <h4>Para Todas las Edades</h4>
+                <p>Diversión garantizada para adultos y niños desde los 9 años en adelante.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Sección de comunas -->
+<section class="comunas-section" id="comunas-santiago">
+    <div class="container">
+        <h2 class="section-title">Comunas de Santiago donde llegamos</h2>
+        <p class="service-description">Nuestro servicio de arriendo de toro mecánico cubre todas las principales comunas de Santiago y la Región Metropolitana.</p>
+        <div class="comunas-grid">
+            <div class="comuna-item">Las Condes</div>
+            <div class="comuna-item">Providencia</div>
+            <div class="comuna-item">Vitacura</div>
+            <div class="comuna-item">La Florida</div>
+            <div class="comuna-item">Ñuñoa</div>
+            <div class="comuna-item">Santiago Centro</div>
+            <div class="comuna-item">La Reina</div>
+            <div class="comuna-item">Peñalolén</div>
+            <div class="comuna-item">Macul</div>
+            <div class="comuna-item">San Miguel</div>
+            <div class="comuna-item">Maipú</div>
+            <div class="comuna-item">Puente Alto</div>
+            <div class="comuna-item">Lo Barnechea</div>
+            <div class="comuna-item">Quilicura</div>
+            <div class="comuna-item">Huechuraba</div>
+            <div class="comuna-item">Pudahuel</div>
+            <div class="comuna-item">Estación Central</div>
+            <div class="comuna-item">Independencia</div>
+            <div class="comuna-item">Recoleta</div>
+            <div class="comuna-item">Conchalí</div>
+        </div>
+    </div>
+</section>
+
+<!-- Sección de tipos de eventos optimizada -->
+<section class="events-section" id="tipos-eventos">
+    <div class="container">
+        <h2 class="section-title">Toro Mecánico para Todo Tipo de Eventos en Santiago</h2>
+        <div class="eventos-grid">
+            <div class="evento-card">
+                <div class="evento-icon"><i class="fas fa-birthday-cake"></i></div>
+                <h3>Cumpleaños</h3>
+                <p>Celebra cumpleaños inolvidables con nuestro toro mecánico en Santiago. Diversión garantizada para adultos y niños.</p>
+                <a href="https://wa.me/+56989639573?text=Quiero%20reservar%20el%20Toro%20Mecánico%20para%20un%20Cumpleaños" class="btn-evento">Reservar para Cumpleaños</a>
+            </div>
+            
+            <div class="evento-card">
+                <div class="evento-icon"><i class="fas fa-building"></i></div>
+                <h3>Eventos Corporativos</h3>
+                <p>Añade diversión a eventos corporativos en Santiago. Perfecto para integrar equipos y crear ambiente relajado.</p>
+                <a href="https://wa.me/+56989639573?text=Quiero%20reservar%20el%20Toro%20Mecánico%20para%20un%20Evento%20Corporativo" class="btn-evento">Reservar Corporativo</a>
+            </div>
+            
+            <div class="evento-card">
+                <div class="evento-icon"><i class="fas fa-heart"></i></div>
+                <h3>Matrimonios</h3>
+                <p>Sorprende a tus invitados en tu matrimonio con el toro mecánico. Una atracción única en Santiago.</p>
+                <a href="https://wa.me/+56989639573?text=Quiero%20reservar%20el%20Toro%20Mecánico%20para%20un%20Matrimonio" class="btn-evento">Reservar Matrimonio</a>
+            </div>
+            
+            <div class="evento-card">
+                <div class="evento-icon"><i class="fas fa-glass-cheers"></i></div>
+                <h3>Despedidas de Soltera</h3>
+                <p>La opción perfecta para despedidas de soltera en Santiago. Diversión y adrenalina garantizada.</p>
+                <a href="https://wa.me/+56989639573?text=Quiero%20reservar%20el%20Toro%20Mecánico%20para%20una%20Despedida%20de%20Soltera" class="btn-evento">Reservar Despedida</a>
+            </div>
+            
+            <div class="evento-card">
+                <div class="evento-icon"><i class="fas fa-flag"></i></div>
+                <h3>Fiestas Patrias</h3>
+                <p>Celebra las fiestas patrias con tradición y diversión. Toro mecánico especial para 18 de Septiembre.</p>
+                <a href="https://wa.me/+56989639573?text=Quiero%20reservar%20el%20Toro%20Mecánico%20para%20Fiestas%20Patrias" class="btn-evento">Reservar Fiestas Patrias</a>
+            </div>
+            
+            <div class="evento-card">
+                <div class="evento-icon"><i class="fas fa-calendar-alt"></i></div>
+                <h3>Eventos Comunitarios</h3>
+                <p>Perfecto para eventos comunitarios en Santiago. Reúne a personas de todas las edades.</p>
+                <a href="https://wa.me/+56989639573?text=Quiero%20reservar%20el%20Toro%20Mecánico%20para%20un%20Evento%20Comunitario" class="btn-evento">Reservar Evento</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Sección adicional de información optimizada -->
+<section class="info-section" id="info-adicional">
+    <div class="container">
+        <h2 class="section-title">¿Qué incluye el Arriendo de Toro Mecánico en Santiago?</h2>
+        <div class="info-grid">
+            <div class="info-card">
+                <div class="info-icon"><i class="fas fa-cog"></i></div>
+                <h3>Equipo Profesional</h3>
+                <p>Toro mecánico de última generación con sistema de seguridad integrado, colchón inflable 5x5 metros y arnés de seguridad.</p>
+            </div>
+            
+            <div class="info-card">
+                <div class="info-icon"><i class="fas fa-user-tie"></i></div>
+                <h3>Operador Capacitado</h3>
+                <p>Operador profesional incluido durante todo el evento, capacitado en medidas de seguridad y primeros auxilios.</p>
+            </div>
+            
+            <div class="info-card">
+                <div class="info-icon"><i class="fas fa-truck-moving"></i></div>
+                <h3>Transporte Total</h3>
+                <p>Transporte, montaje y desmontaje incluido dentro del círculo de Américo Vespucio en Santiago.</p>
+            </div>
+        </div>
+        
+        <div class="info-details">
+            <h3>Información Importante del Servicio</h3>
+            <div class="info-details-grid">
+                <div class="info-detail-item">
+                    <i class="fas fa-check"></i>
+                    <span>Duración del arriendo: 3 horas</span>
+                </div>
+                <div class="info-detail-item">
+                    <i class="fas fa-check"></i>
+                    <span>Instalación 45 minutos antes del evento</span>
+                </div>
+                <div class="info-detail-item">
+                    <i class="fas fa-check"></i>
+                    <span>Edad mínima: 9 años</span>
+                </div>
+                <div class="info-detail-item">
+                    <i class="fas fa-check"></i>
+                    <span>Peso máximo: 120 kg</span>
+                </div>
+                <div class="info-detail-item">
+                    <i class="fas fa-check"></i>
+                    <span>Requiere conexión eléctrica 220V</span>
+                </div>
+                <div class="info-detail-item">
+                    <i class="fas fa-check"></i>
+                    <span>Espacio mínimo requerido: 8x8 metros</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Sección de preguntas frecuentes -->
+<section class="faq-section" id="preguntas-frecuentes">
+    <div class="container">
+        <h2 class="section-title">Preguntas Frecuentes - Toro Mecánico Santiago</h2>
+        <div style="max-width: 800px; margin: 0 auto;">
+            <div class="faq-item">
+                <h4 class="faq-question">¿En qué comunas de Santiago arriendan el toro mecánico?</h4>
+                <p class="faq-answer">Ofrecemos servicio de arriendo de toro mecánico en todas las comunas de Santiago: Las Condes, Providencia, Vitacura, La Florida, Ñuñoa, Santiago Centro, La Reina, Peñalolén, Macul, San Miguel, Maipú, Puente Alto, Lo Barnechea, Quilicura, Huechuraba y más.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h4 class="faq-question">¿Cuánto cuesta arrendar un toro mecánico en Santiago?</h4>
+                <p class="faq-answer">Los precios van desde $180.000 para el toro mecánico básico hasta $350.000 para el pack completo. Todos los precios incluyen operador, transporte y 3 horas de arriendo en Santiago.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h4 class="faq-question">¿Es seguro el toro mecánico para niños?</h4>
+                <p class="faq-answer">Sí, nuestro toro mecánico cuenta con todas las medidas de seguridad: colchón inflable, arnés de seguridad, operador capacitado y velocidad ajustable. Recomendado para niños desde 9 años.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h4 class="faq-question">¿Qué necesito para instalar el toro mecánico?</h4>
+                <p class="faq-answer">Necesitas un espacio mínimo de 8x8 metros, superficie plana, conexión eléctrica 220V y acceso para la instalación. Nosotros nos encargamos del resto.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h4 class="faq-question">¿Con cuánta anticipación debo reservar?</h4>
+                <p class="faq-answer">Te recomendamos reservar con al menos 1 semana de anticipación, especialmente para fines de semana y fechas especiales en Santiago.</p>
+            </div>
+        </div>
+    </div>
+</section>
+   <!-- Testimonios 
+   <section class="testimonials">
+       <div class="container">
+           <h2 class="section-title">Lo Que Dicen Nuestros Clientes</h2>
+           <div class="testimonial-container">
+               <div class="testimonial">
+                   <p class="testimonial-text">"El toro mecánico fue la sensación de nuestra fiesta corporativa. El equipo llegó puntual, montó todo rápidamente y fueron muy profesionales. ¡Volveremos a contratarlos sin duda!"</p>
+                   <p class="testimonial-author">Carolina Fuentes - Gerente de Marketing</p>
+               </div>
+           </div>
+       </div>
+   </section>-->
+
+   <!-- Contacto -->
+   <section id="contacto" class="contact">
+       <div class="container">
+           <h2 class="section-title">Contáctanos</h2>
+           <div class="contact-info">
+           <a href="tel:+56989639573" class="contact-card">
+               <div class="contact-icon">
+                   <i class="fas fa-phone"></i>
+               </div>
+               <h3>Teléfono</h3>
+               <p>+569 8963 9573</p>
+               </a>
+           <a href="mailto:info@prendetufiesta.cl" class="contact-card">
+               <div class="contact-icon">
+                   <i class="far fa-envelope"></i>
+               </div>
+               <h3>Email</h3>
+               <p>info@prendetufiesta.cl</p>
+           </a>
+           <a href="https://g.co/kgs/BE7g2SY" target="_blank" class="contact-card">
+               <div class="contact-icon">
+                   <i class="fas fa-map-marker-alt"></i>
+               </div>
+               <h3>Ubicación</h3>
+               <p>Santiago, Región Metropolitana</p>
+           </a>
+           </div>
+           <div class="map">
+               <!-- Aquí iría el mapa de Google, por ejemplo -->
+               <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d852984.1677255179!2d-71.58294758883574!3d-33.3718647706968!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa5254a05791f887d%3A0x7fd18e705cc6c7c7!2sToro%20Mec%C3%A1nico!5e0!3m2!1ses!2scl!4v1747529344486!5m2!1ses!2scl" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" title="Area de servicio que arrendamos el Toro Mecanico en Santiago"></iframe>
+          <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d852984.1677255179!2d-71.58294758883574!3d-33.3718647706968!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa5254a05791f887d%3A0x7fd18e705cc6c7c7!2sToro%20Mec%C3%A1nico!5e0!3m2!1ses!2scl!4v1747529344486!5m2!1ses!2scl" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>-->
+       <iframe 
+ width="100%" 
+ height="600" 
+ style="border:0" 
+ loading="lazy" 
+ allowfullscreen 
+ referrerpolicy="no-referrer-when-downgrade" 
+ src="https://www.google.com/maps/embed/v1/place?key=TU_API_KEY&q=place_id:TU_PLACE_ID">
+</iframe>    
+       
+       </div>
+       </div>
+   </section>
+<!-- Bloque de navegación adicional -->
+<div style="background-color: #000; color: white; padding: 40px 0;">
+   <div class="container">
+       <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px;">
+           <!-- Columna MENÚ -->
+           <div>
+               <h3 style="margin-bottom: 20px; color: white; font-size: 1.3rem;">MENÚ</h3>
+               <ul style="list-style: none; padding: 0;">
+                   <li style="margin-bottom: 10px;">
+                       <a href="index.html" style="color: white; text-decoration: none; display: flex; align-items: center;">
+                           <i class="fas fa-chevron-right" style="margin-right: 10px; color: #4fbfba;"></i>
+                           Home
+                       </a>
+                   </li>
+                   <li style="margin-bottom: 10px;">
+                       <a href="nosotros.html" style="color: white; text-decoration: none; display: flex; align-items: center;">
+                           <i class="fas fa-chevron-right" style="margin-right: 10px; color: #4fbfba;"></i>
+                           Nosotros
+                       </a>
+                   </li>
+                   <li style="margin-bottom: 10px;">
+                       <a href="todos-los-juegos.html" style="color: white; text-decoration: none; display: flex; align-items: center;">
+                           <i class="fas fa-chevron-right" style="margin-right: 10px; color: #4fbfba;"></i>
+                           Juegos
+                       </a>
+                   </li>
+                   <li style="margin-bottom: 10px;">
+                       <a href="galeria.html" style="color: white; text-decoration: none; display: flex; align-items: center;">
+                           <i class="fas fa-chevron-right" style="margin-right: 10px; color: #4fbfba;"></i>
+                           Galería
+                       </a>
+                   </li>
+                   <li style="margin-bottom: 10px;">
+                       <a href="https://wa.me/+56989639573" style="color: white; text-decoration: none; display: flex; align-items: center;">
+                           <i class="fas fa-chevron-right" style="margin-right: 10px; color: #4fbfba;"></i>
+                           Contacto
+                       </a>
+                   </li>
+               </ul>
+           </div>
+           
+           <!-- Columna ARRIENDO DE JUEGOS -->
+           <div>
+               <h3 style="margin-bottom: 20px; color: white; font-size: 1.3rem;">ARRIENDO DE JUEGOS</h3>
+               <ul style="list-style: none; padding: 0;">
+                   <li style="margin-bottom: 10px;">
+                       <a href="https://wa.me/+56989639573" style="color: white; text-decoration: none; display: flex; align-items: center;">
+                           <i class="fas fa-chevron-right" style="margin-right: 10px; color: #4fbfba;"></i>
+                           Arriendo Taca Tacas
+                       </a>
+                   </li>
+                   <li style="margin-bottom: 10px;">
+                       <a href="https://wa.me/+56989639573" style="color: white; text-decoration: none; display: flex; align-items: center;">
+                           <i class="fas fa-chevron-right" style="margin-right: 10px; color: #4fbfba;"></i>
+                           Taca taca 4 jugadores
+                       </a>
+                   </li>
+                   <li style="margin-bottom: 10px;">
+                       <a href="/taca-taca-8-jugadores/" style="color: white; text-decoration: none; display: flex; align-items: center;">
+                           <i class="fas fa-chevron-right" style="margin-right: 10px; color: #4fbfba;"></i>
+                           Taca taca 8 jugadores
+                       </a>
+                   </li>
+                   <li style="margin-bottom: 10px;">
+                       <a href="juegos/toro-mecanico/" style="color: white; text-decoration: none; display: flex; align-items: center;">
+                           <i class="fas fa-chevron-right" style="margin-right: 10px; color: #4fbfba;"></i>
+                           Arriendo Toro Mecánico
+                       </a>
+                   </li>
+                   <li style="margin-bottom: 10px;">
+                       <a href="https://wa.me/+56989639573" style="color: white; text-decoration: none; display: flex; align-items: center;">
+                           <i class="fas fa-chevron-right" style="margin-right: 10px; color: #4fbfba;"></i>
+                           Juego El Eliminador
+                       </a>
+                   </li>
+                   <li style="margin-bottom: 10px;">
+                       <a href="https://wa.me/+56989639573" style="color: white; text-decoration: none; display: flex; align-items: center;">
+                           <i class="fas fa-chevron-right" style="margin-right: 10px; color: #4fbfba;"></i>
+                           Tabla de Surf
+                       </a>
+                   </li>
+                   <li style="margin-bottom: 10px;">
+                       <a href="https://wa.me/+56989639573" style="color: white; text-decoration: none; display: flex; align-items: center;">
+                           <i class="fas fa-chevron-right" style="margin-right: 10px; color: #4fbfba;"></i>
+                           Mesa de Hockey
+                       </a>
+                   </li>
+               </ul>
+           </div>
+           
+           <!-- Columna JUEGOS EN ARRIENDO -->
+           <div>
+               <h3 style="margin-bottom: 20px; color: white; font-size: 1.3rem;">JUEGOS EN ARRIENDO</h3>
+               <ul style="list-style: none; padding: 0;">
+                   <li style="margin-bottom: 10px;">
+                       <a href="https://wa.me/+56989639573" style="color: white; text-decoration: none; display: flex; align-items: center;">
+                           <i class="fas fa-chevron-right" style="margin-right: 10px; color: #4fbfba;"></i>
+                           Mesa de Ping Pong
+                       </a>
+                   </li>
+                   <li style="margin-bottom: 10px;">
+                       <a href="https://wa.me/+56989639573" style="color: white; text-decoration: none; display: flex; align-items: center;">
+                           <i class="fas fa-chevron-right" style="margin-right: 10px; color: #4fbfba;"></i>
+                           Arcade
+                       </a>
+                   </li>
+                   <li style="margin-bottom: 10px;">
+                       <a href="https://wa.me/+56989639573" style="color: white; text-decoration: none; display: flex; align-items: center;">
+                           <i class="fas fa-chevron-right" style="margin-right: 10px; color: #4fbfba;"></i>
+                           Inflable Minios
+                       </a>
+                   </li>
+                   <li style="margin-bottom: 10px;">
+                       <a href="/cabrita/" style="color: white; text-decoration: none; display: flex; align-items: center;">
+                           <i class="fas fa-chevron-right" style="margin-right: 10px; color: #4fbfba;"></i>
+                           Cabrita
+                       </a>
+                   </li>
+                   <li style="margin-bottom: 10px;">
+                       <a href="https://wa.me/+56989639573" style="color: white; text-decoration: none; display: flex; align-items: center;">
+                           <i class="fas fa-chevron-right" style="margin-right: 10px; color: #4fbfba;"></i>
+                           Algodón
+                       </a>
+                   </li>
+                   <li style="margin-bottom: 10px;">
+                       <a href="https://wa.me/+56989639573" style="color: white; text-decoration: none; display: flex; align-items: center;">
+                           <i class="fas fa-chevron-right" style="margin-right: 10px; color: #4fbfba;"></i>
+                           Chispa Fría
+                       </a>
+                   </li>
+                   <li style="margin-bottom: 10px;">
+                       <a href="https://wa.me/+56989639573" style="color: white; text-decoration: none; display: flex; align-items: center;">
+                           <i class="fas fa-chevron-right" style="margin-right: 10px; color: #4fbfba;"></i>
+                           Cámara 360°
+                       </a>
+                   </li>
+                   <li style="margin-bottom: 10px;">
+                       <a href="https://wa.me/+56989639573" style="color: white; text-decoration: none; display: flex; align-items: center;">
+                           <i class="fas fa-chevron-right" style="margin-right: 10px; color: #4fbfba;"></i>
+                           Cabina Fotográfica
+                       </a>
+                   </li>
+               </ul>
+           </div>
+           
+           <!-- Columna CONTACTO -->
+           <div>
+               <h3 style="margin-bottom: 20px; color: white; font-size: 1.3rem;">CONTACTO</h3>
+               <ul style="list-style: none; padding: 0;">
+                   <li style="margin-bottom: 10px;">
+                       <a href="tel:+56989639573" style="color: white; text-decoration: none; display: flex; align-items: center;">
+                           <i class="fas fa-phone" style="margin-right: 10px; color: #4fbfba;"></i>
+                           +569 8963 9573
+                       </a>
+                   </li>
+                   <li style="margin-bottom: 10px;">
+                       <a href="mailto:info@prendetufiesta.cl" style="color: white; text-decoration: none; display: flex; align-items: center;">
+                           <i class="fas fa-envelope" style="margin-right: 10px; color: #4fbfba;"></i>
+                           info@prendetufiesta.cl
+                       </a>
+                   </li>
+                   <li style="margin-bottom: 10px;">
+                       <a href="https://goo.gl/maps/YourLocationHere" style="color: white; text-decoration: none; display: flex; align-items: center;">
+                           <i class="fas fa-map-marker-alt" style="margin-right: 10px; color: #4fbfba;"></i>
+                           Franciscanos 650, Pudahuel
+                       </a>
+                   </li>
+               </ul>
+           </div>
+       </div>
+   </div>
+</div>
+   <!-- Pie de página -->
+   <footer>
+       <div class="container">
+           <div class="social-icons">
+               <a href="https://www.facebook.com/profile.php?id=100054380567067" class="social-icon" target="_blank" aria-label="Síguenos en Facebook">
+                   <i class="fab fa-facebook-f"></i>
+               </a>
+               <a href="https://www.instagram.com/toromecanicostgo" class="social-icon" target="_blank" aria-label="Síguenos en Instagram">
+                   <i class="fab fa-instagram"></i>
+               </a>
+               <a href="https://www.youtube.com/watch?v=LQ0-xlQw0yI" class="social-icon" target="_blank" aria-label="Visita nuestro canal de YouTube">
+                   <i class="fab fa-youtube"></i>
+               </a>
+           </div>
+           <div class="footer-links">
+               <a href="#" class="footer-link">Términos y Condiciones</a>
+               <a href="#" class="footer-link">Política de Privacidad</a>
+               <a href="#" class="footer-link">Blog</a>
+           </div>
+           <p>&copy; 2025 Toro Mecanico Eventos - Arriendo de Toro Mecánico Santiago</p>
+       </div>
+   </footer>
+
+
+   <!-- JavaScript al final del cuerpo para cargar más rápido las páginas -->
+   <script>
+       // Script para el menú hamburguesa
+       document.addEventListener('DOMContentLoaded', function() {
+           const menuToggle = document.querySelector('.menu-toggle');
+           const navMenu = document.querySelector('.nav-menu');
+           
+           menuToggle.addEventListener('click', function() {
+               menuToggle.classList.toggle('active');
+               navMenu.classList.toggle('active');
+           });
+           
+           // Para los submenús en móvil
+           const hasSubmenuItems = document.querySelectorAll('.has-submenu');
+           
+           hasSubmenuItems.forEach(item => {
+               const submenuToggle = item.querySelector('.submenu-toggle');
+               
+               if (submenuToggle) {
+                   submenuToggle.addEventListener('click', function(e) {
+                       e.preventDefault();
+                       item.classList.toggle('active');
+                   });
+               }
+           });
+       });
+   </script>
+</body>
+</html>

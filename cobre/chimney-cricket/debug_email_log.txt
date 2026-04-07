@@ -1,0 +1,30 @@
+2025-10-04 22:24:09 - CHIMNEY CRICKET REQUEST
+To: andres@toromecanicoeventos.cl
+Customer: ignacio.perezv@utem.cl (cl)
+Estimated Price: $250.00
+Pitch: 3/12 Pitch - Material: 20oz. Copper
+PHPMailer available: YES
+Attempt phpmailer: success
+Final result: SUCCESS
+
+2025-10-04 22:24:12 - CLIENT CRICKET EMAIL
+To: ignacio.perezv@utem.cl (cl)
+Estimated Price: $250.00
+Attempt phpmailer: success
+Final result: SUCCESS
+
+2025-10-04 22:26:55 - CHIMNEY CRICKET REQUEST
+To: andres@toromecanicoeventos.cl
+Customer: ignacio.perezve@postgrado.uv.cl (cl)
+Estimated Price: $250.00
+Pitch: 2/12 Pitch - Material: 24ga. Galvanized
+PHPMailer available: YES
+Attempt phpmailer: success
+Final result: SUCCESS
+
+2025-10-04 22:26:58 - CLIENT CRICKET EMAIL
+To: ignacio.perezve@postgrado.uv.cl (cl)
+Estimated Price: $250.00
+Attempt phpmailer: success
+Final result: SUCCESS
+
