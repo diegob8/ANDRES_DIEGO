@@ -1,0 +1,14 @@
+2025-09-22 00:31:42 - BUSINESS EMAIL
+To: andres@toromecanicoeventos.cl
+Customer: hispanoacho@hotmail.com (international)
+Estimated Price: $150.00
+PHPMailer available: YES
+Attempt phpmailer: success
+Final result: SUCCESS
+
+2025-09-22 00:31:45 - CLIENT EMAIL
+To: hispanoacho@hotmail.com (international)
+Estimated Price: $150.00
+Attempt phpmailer: success
+Final result: SUCCESS
+
