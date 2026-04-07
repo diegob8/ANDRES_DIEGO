@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Copper & Metal Supply Inc</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --copper-light: #F4E6D7;
+            --copper-medium: #D4A574;
+            --copper-dark: #B8860B;
+            --teal-gradient: linear-gradient(135deg, #4A90A4, #2E5266);
+            --text-dark: #2C2C2C;
+            --white: #FFFFFF;
+            --shadow: rgba(0, 0, 0, 0.1);
+            --success-green: #27ae60;
+            --error-red: #e74c3c;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--teal-gradient);
+            min-height: 100vh;
+        }
+
+        /* Header */
+        .header {
+            background: var(--copper-light);
+            padding: 20px 0;
+            box-shadow: 0 2px 10px var(--shadow);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--copper-dark);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 20px;
+            font-family: 'Impact', sans-serif;
+        }
+
+        /* Navigation */
+        .navigation {
+            background: var(--white);
+            border-radius: 10px;
+            padding: 0;
+            box-shadow: 0 2px 15px var(--shadow);
+            overflow: visible;
+            position: relative;
+        }
+
+        .nav-list {
+            display: flex;
+            list-style: none;
+            justify-content: center;
+            flex-wrap: wrap;
+            position: relative;
+        }
+
+        .nav-item {
+            flex: 1;
+            min-width: 120px;
+            position: relative;
+        }
+
+        .nav-link {
+            display: block;
+            padding: 15px 20px;
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            text-align: center;
+            transition: all 0.3s ease;
+            border-right: 1px solid #eee;
+            position: relative;
+        }
+
+        .nav-item:last-child .nav-link {
+            border-right: none;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            background: var(--text-dark);
+            color: var(--white);
+        }
+
+        .nav-item:hover {
+            background: var(--text-dark);
+        }
+
+        .nav-item:hover .nav-link {
+            background: var(--text-dark);
+            color: var(--white);
+        }
+
+        /* Dropdown Menu Styles */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: var(--white);
+            min-width: 200px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            border-radius: 0 0 8px 8px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            border: 1px solid #eee;
+            border-top: none;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-item {
+            display: block;
+            padding: 12px 20px;
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .dropdown-item:last-child {
+            border-bottom: none;
+            border-radius: 0 0 8px 8px;
+        }
+
+        .dropdown-item:hover {
+            background: var(--text-dark);
+            color: var(--white);
+        }
+
+        .dropdown-item.active {
+            background: var(--text-dark);
+            color: var(--white);
+            font-weight: 600;
+        }
+
+        /* Ensure dropdown parent stays highlighted when hovering dropdown */
+        .dropdown:hover > .nav-link {
+            background: var(--text-dark);
+            color: var(--white);
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .form-container {
+            background: var(--white);
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            margin-bottom: 40px;
+        }
+
+        .form-title {
+            text-align: center;
+            font-size: 2rem;
+            color: var(--text-dark);
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+
+        .form-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        .form-fields {
+            display: grid;
+            gap: 20px;
+        }
+
+        .field-group {
+            display: grid;
+            gap: 5px;
+        }
+
+        .field-label {
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .required {
+            color: #e74c3c;
+        }
+
+        .field-input {
+            padding: 12px 15px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+
+        .field-input:focus {
+            outline: none;
+            border-color: var(--copper-dark);
+        }
+
+        /* Updated dimensions and dropdowns layout */
+        .full-width-section {
+            grid-column: 1 / -1;
+            width: 100%;
+        }
+
+        .dimensions-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .dimension-field {
+            text-align: center;
+        }
+
+        .dimension-input {
+            width: 100%;
+            padding: 12px 8px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .dimension-input:focus {
+            outline: none;
+            border-color: var(--copper-dark);
+        }
+
+        .dimension-label {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: var(--text-dark);
+        }
+
+        .select-group {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .custom-select {
+            position: relative;
+        }
+
+        .select-input {
+            width: 100%;
+            padding: 12px 40px 12px 15px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            background: white;
+            cursor: pointer;
+            appearance: none;
+        }
+
+        .select-input:focus {
+            outline: none;
+            border-color: var(--copper-dark);
+        }
+
+        .select-arrow {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            pointer-events: none;
+            font-size: 12px;
+            color: #666;
+        }
+
+        /* Diagram */
+        .diagram-container {
+            text-align: center;
+            background: #f8f8f8;
+            border-radius: 10px;
+            padding: 30px;
+            border: 2px solid #ddd;
+        }
+
+        .diagram-image {
+            max-width: 100%;
+            height: auto;
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
+            border-radius: 8px;
+        }
+
+        .submit-btn {
+            background: var(--copper-dark);
+            color: var(--white);
+            padding: 15px 40px;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 30px;
+            width: 100%;
+            max-width: 300px;
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+        }
+
+        .submit-btn:hover {
+            background: #996600;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        .submit-btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* Message styles */
+        .message {
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .message.success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .message.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        .loading {
+            display: none;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .spinner {
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid var(--copper-dark);
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Custom dropdown animations */
+        .dropdown-options {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            border: 2px solid #ddd;
+            border-top: none;
+            border-radius: 0 0 8px 8px;
+            max-height: 200px;
+            overflow-y: auto;
+            z-index: 1000;
+            display: none;
+        }
+
+        .dropdown-option {
+            padding: 12px 15px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        .dropdown-option:hover {
+            background-color: var(--copper-dark);
+            color: var(--white);
+        }
+
+        .custom-select.open .dropdown-options {
+            display: block;
+        }
+
+        .custom-select.open .select-arrow {
+            transform: translateY(-50%) rotate(180deg);
+        }
+
+        /* Price Calculator Styles */
+        .price-calculator {
+            background: linear-gradient(135deg, #4A90A4, #2E5266);
+            border-radius: 12px;
+            padding: 25px;
+            margin: 30px 0;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            border: 3px solid var(--copper-dark);
+        }
+
+        .calculator-title {
+            color: var(--white);
+            font-size: 1.4rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .price-display {
+            background: var(--white);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 15px 0;
+            box-shadow: inset 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .price-label {
+            font-size: 1.1rem;
+            color: var(--text-dark);
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .price-amount {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--copper-dark);
+            font-family: 'Impact', sans-serif;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            animation: priceGlow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes priceGlow {
+            from { transform: scale(1); }
+            to { transform: scale(1.02); }
+        }
+
+        .price-note {
+            font-size: 0.85rem;
+            color: #666;
+            font-style: italic;
+            margin-top: 10px;
+            line-height: 1.3;
+        }
+
+        .price-breakdown {
+            background: rgba(255,255,255,0.1);
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 15px;
+            font-size: 0.9rem;
+            color: var(--white);
+        }
+
+        .breakdown-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+            padding: 2px 0;
+        }
+
+        .breakdown-total {
+            border-top: 2px solid var(--white);
+            padding-top: 8px;
+            margin-top: 8px;
+            font-weight: bold;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 1.8rem;
+                letter-spacing: 2px;
+            }
+
+            .nav-list {
+                flex-direction: column;
+            }
+
+            .nav-link {
+                border-right: none;
+                border-bottom: 1px solid #eee;
+            }
+
+            .dropdown-menu {
+                position: static;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                box-shadow: none;
+                border: none;
+                border-radius: 0;
+                background: #f8f8f8;
+            }
+
+            .dropdown:hover .dropdown-menu {
+                display: block;
+            }
+
+            .form-container {
+                padding: 20px;
+            }
+
+            .form-layout {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .dimensions-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .select-group {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .form-title {
+                font-size: 1.5rem;
+            }
+
+            .price-amount {
+                font-size: 2rem;
+            }
+
+            .calculator-title {
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .dimensions-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .logo {
+                font-size: 1.5rem;
+                letter-spacing: 1px;
+            }
+
+            .price-amount {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <h1 class="logo">Copper & Metal Supply Inc</h1>
+            <nav class="navigation">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="#" class="nav-link">Home</a></li>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link active">Custom Metal Work</a>
+                        <div class="dropdown-menu">
+                            <a href="#" class="dropdown-item active">Chimney Cap</a>
+                            <a href="#" class="dropdown-item">Chimney Saddle</a>
+                            <a href="#" class="dropdown-item">Deck Door Pan</a>
+                            <a href="#" class="dropdown-item">Chimney Cricket</a>
+                        </div>
+                    </li>
+                    <li class="nav-item"><a href="#" class="nav-link">Other Products</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Rain Gutters & More</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Downspouts & More</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Contact Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="form-container">
+            <h2 class="form-title">Chimney Cap Quote Request</h2>
+            
+            <div id="messageContainer"></div>
+            <div id="loadingContainer" class="loading">
+                <div class="spinner"></div>
+                <p>Sending your request...</p>
+            </div>
+            
+            <form id="chimneyCapForm" class="form-layout">
+                <!-- Diagram -->
+                <div class="form-fields">
+                    <div class="field-group">
+                        <div class="diagram-container">
+                            <img src="Chimney-Cap.webp" alt="Chimney Cap Dimensions Diagram" class="diagram-image">
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Form Fields -->
+                <div class="form-fields">
+                    <div class="field-group">
+                        <label class="field-label">First Name <span class="required">*</span></label>
+                        <input type="text" name="first_name" class="field-input" placeholder="Enter your first name" required>
+                        
+                        <label class="field-label">Last Name <span class="required">*</span></label>
+                        <input type="text" name="last_name" class="field-input" placeholder="Enter your last name" required>
+                        
+                        <label class="field-label">E-mail <span class="required">*</span></label>
+                        <input type="email" name="email" class="field-input" placeholder="Enter your e-mail" required>
+                        
+                        <label class="field-label">Phone Number <span class="required">*</span></label>
+                        <input type="tel" name="phone" class="field-input" placeholder="Enter your phone number" required>
+                        
+                        <label class="field-label">Company Name</label>
+                        <input type="text" name="company_name" class="field-input" placeholder="Enter your company name (optional)">
+                    </div>
+                </div>        
+            
+                <!-- Full width section for dimensions and dropdowns -->
+                <div class="full-width-section">
+                    <!-- Dimensions -->
+                    <div class="field-group">
+                        <label class="field-label">Enter Dimensions (inches):</label>
+                        <div class="dimensions-grid">
+                            <div class="dimension-field">
+                                <div class="dimension-label">A</div>
+                                <input type="number" name="dimension_a" class="dimension-input" placeholder="" step="0.01">
+                            </div>
+                            <div class="dimension-field">
+                                <div class="dimension-label">B</div>
+                                <input type="number" name="dimension_b" class="dimension-input" placeholder="" step="0.01">
+                            </div>
+                            <div class="dimension-field">
+                                <div class="dimension-label">C</div>
+                                <input type="number" name="dimension_c" class="dimension-input" placeholder="" step="0.01">
+                            </div>
+                            <div class="dimension-field">
+                                <div class="dimension-label">D</div>
+                                <input type="number" name="dimension_d" class="dimension-input" placeholder="" step="0.01">
+                            </div>
+                            <div class="dimension-field">
+                                <div class="dimension-label">E</div>
+                                <input type="number" name="dimension_e" class="dimension-input" placeholder="" step="0.01">
+                            </div>
+                            <div class="dimension-field">
+                                <div class="dimension-label">F</div>
+                                <input type="number" name="dimension_f" class="dimension-input" placeholder="" step="0.01">
+                            </div>
+                        </div>
+                        
+                        <!-- Dropdowns -->
+                        <div class="select-group">
+                            <div class="field-group">
+                                <label class="field-label">Hole Diameter <span class="required">*</span></label>
+                                <input type="text" name="hole_diameter" class="field-input" placeholder="Enter hole diameter" required>
+                            </div>
+                            
+                            <div class="field-group">
+                                <label class="field-label">Edge Detail <span class="required">*</span></label>
+                                <div class="custom-select">
+                                    <div class="select-input" onclick="toggleDropdown(this)">
+                                        Choose the edge detail
+                                        <span class="select-arrow">▼</span>
+                                    </div>
+                                    <div class="dropdown-options">
+                                        <div class="dropdown-option" onclick="selectOption(this, 'edge_detail')">Closed Hem</div>
+                                        <div class="dropdown-option" onclick="selectOption(this, 'edge_detail')">Closed Hem with Kick</div>
+                                        <div class="dropdown-option" onclick="selectOption(this, 'edge_detail')">Raw No Hem & No Kick</div>
+                                    </div>
+                                </div>
+                                <input type="hidden" name="edge_detail" required>
+                            </div>
+
+                            <div class="field-group">
+                                <label class="field-label">Type of Material <span class="required">*</span></label>
+                                <div class="custom-select">
+                                    <div class="select-input" onclick="toggleDropdown(this)">
+                                        Choose type of material
+                                        <span class="select-arrow">▼</span>
+                                    </div>
+                                    <div class="dropdown-options">
+                                        <div class="dropdown-option" onclick="selectOption(this, 'material_type')">16oz. Copper</div>
+                                        <div class="dropdown-option" onclick="selectOption(this, 'material_type')">20oz. Copper</div>
+                                        <div class="dropdown-option" onclick="selectOption(this, 'material_type')">24ga. Galvanized</div>
+                                        <div class="dropdown-option" onclick="selectOption(this, 'material_type')">24ga. Bondarized</div>
+                                    </div>
+                                </div>
+                                <input type="hidden" name="material_type" required>
+                            </div>
+                        </div>
+                        
+                        <!-- Price Calculator Section -->
+                        <div class="price-calculator">
+                            <h3 class="calculator-title">Estimated Price Calculator</h3>
+                            <div class="price-display">
+                                <div class="price-label">Estimated Price:</div>
+                                <div class="price-amount" id="calculatedPrice">$0.00</div>
+                                <div class="price-note">*This is an estimate. Final price may vary based on complexity and current material costs.</div>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="submit-btn">Submit Quote Request</button>
+                    </div>   
+                </div>    
+            </form>
+        </div>
+    </main>
+
+    <script>
+        function toggleDropdown(element) {
+            const customSelect = element.parentElement;
+            const allSelects = document.querySelectorAll('.custom-select');
+            
+            // Close other dropdowns
+            allSelects.forEach(select => {
+                if (select !== customSelect) {
+                    select.classList.remove('open');
+                }
+            });
+            
+            // Toggle current dropdown
+            customSelect.classList.toggle('open');
+        }
+
+        function selectOption(element, fieldName) {
+            const customSelect = element.closest('.custom-select');
+            const selectInput = customSelect.querySelector('.select-input');
+            const hiddenInput = customSelect.parentElement.querySelector(`input[name="${fieldName}"]`);
+            
+            // Update selected value
+            selectInput.childNodes[0].textContent = element.textContent;
+            hiddenInput.value = element.textContent;
+            
+            // Close dropdown
+            customSelect.classList.remove('open');
+            
+            // Update price calculation
+            updatePriceCalculation();
+        }
+
+        // Close dropdowns when clicking outside
+        document.addEventListener('click', function(event) {
+            if (!event.target.closest('.custom-select')) {
+                document.querySelectorAll('.custom-select').forEach(select => {
+                    select.classList.remove('open');
+                });
+            }
+        });
+
+        // Price Calculator Functions
+        function updatePriceCalculation() {
+            // Get dimensions
+            const dimA = parseFloat(document.querySelector('input[name="dimension_a"]').value) || 0;
+            const dimB = parseFloat(document.querySelector('input[name="dimension_b"]').value) || 0;
+            const dimC = parseFloat(document.querySelector('input[name="dimension_c"]').value) || 0;
+            const dimD = parseFloat(document.querySelector('input[name="dimension_d"]').value) || 0;
+            const dimE = parseFloat(document.querySelector('input[name="dimension_e"]').value) || 0;
+            const dimF = parseFloat(document.querySelector('input[name="dimension_f"]').value) || 0;
+            
+            // Get material type
+            const materialType = document.querySelector('input[name="material_type"]').value;
+            
+            // Get edge detail
+            const edgeDetail = document.querySelector('input[name="edge_detail"]').value;
+            
+            // Get hole diameter
+            const holeDiameter = parseFloat(document.querySelector('input[name="hole_diameter"]').value) || 0;
+            
+            // Calculate only if we have basic dimensions
+            if (dimA > 0 && dimB > 0 && dimC > 0 && dimD > 0) {
+                const price = calculateChimneyCapPrice(dimA, dimB, dimC, dimD, dimE, dimF, materialType, edgeDetail, holeDiameter);
+                document.getElementById('calculatedPrice').textContent = '$' + price.toFixed(2);
+            } else {
+                document.getElementById('calculatedPrice').textContent = '$0.00';
+            }
+        }
+
+        function calculateChimneyCapPrice(dimA, dimB, dimC, dimD, dimE, dimF, materialType, edgeDetail, holeDiameter) {
+            // Calculate area in square feet (assuming dimensions are in inches)
+            // Using outer dimensions for material calculation
+            const length = (dimA + dimC) / 12; // Convert to feet
+            const width = (dimB + dimD) / 12;   // Convert to feet
+            const area = length * width;
+            
+            // Material costs per square foot
+            const materialCosts = {
+                '16oz. Copper': 18.00,
+                '20oz. Copper': 22.00,
+                '24ga. Galvanized': 10.00,
+                '24ga. Bondarized': 12.00
+            };
+            
+            // Edge detail complexity factors
+            const edgeFactors = {
+                'Closed Hem': 1.0,
+                'Closed Hem with Kick': 1.25,
+                'Raw No Hem & No Kick': 0.85
+            };
+            
+            // Get material cost (default to copper if not selected)
+            const materialCost = materialCosts[materialType] || materialCosts['16oz. Copper'];
+            
+            // Get edge factor (default to 1.0 if not selected)
+            const edgeFactor = edgeFactors[edgeDetail] || 1.0;
+            
+            // Base labor cost
+            const baseLaborCost = 75.00;
+            
+            // Size complexity factor (larger caps require more precision)
+            const sizeComplexityFactor = Math.max(1.0, area * 0.1);
+            
+            // Hole complexity factor (larger holes are more complex to cut precisely)
+            const holeComplexityFactor = holeDiameter > 8 ? 1.1 : 1.0;
+            
+            // Calculate final price
+            const materialPrice = area * materialCost;
+            const laborPrice = baseLaborCost * sizeComplexityFactor;
+            const totalPrice = (materialPrice + laborPrice) * edgeFactor * holeComplexityFactor;
+            
+            // Minimum price
+            return Math.max(totalPrice, 150.00);
+        }
+
+        // Add event listeners for real-time calculation
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add listeners to dimension inputs
+            const dimensionInputs = document.querySelectorAll('.dimension-input, input[name="hole_diameter"]');
+            dimensionInputs.forEach(input => {
+                input.addEventListener('input', updatePriceCalculation);
+            });
+            
+            // Initial calculation
+            updatePriceCalculation();
+        });
+
+        // Form submission
+        document.getElementById('chimneyCapForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const submitBtn = this.querySelector('.submit-btn');
+            const loadingContainer = document.getElementById('loadingContainer');
+            const messageContainer = document.getElementById('messageContainer');
+            
+            // Clear previous messages
+            messageContainer.innerHTML = '';
+            
+            // Show loading
+            loadingContainer.style.display = 'block';
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
+            
+            // Send form data
+            fetch('chimney-cap-form-processor.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                loadingContainer.style.display = 'none';
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Submit Quote Request';
+                
+                if (data.success) {
+                    messageContainer.innerHTML = `
+                        <div class="message success">
+                            ${data.message}
+                        </div>
+                    `;
+                    // Reset form
+                    this.reset();
+                    // Reset dropdowns
+                    document.querySelectorAll('.select-input').forEach(select => {
+                        const originalText = select.querySelector('.select-arrow').parentElement === select ? 
+                            (select.textContent.includes('edge detail') ? 'Choose the edge detail' : 'Choose type of material') : 
+                            select.textContent.split('▼')[0].trim();
+                        select.childNodes[0].textContent = originalText;
+                    });
+                    document.querySelectorAll('input[type="hidden"]').forEach(input => {
+                        input.value = '';
+                    });
+                    // Reset price calculator
+                    updatePriceCalculation();
+                } else {
+                    messageContainer.innerHTML = `
+                        <div class="message error">
+                            ${data.message}
+                        </div>
+                    `;
+                }
+                
+                // Scroll to message
+                messageContainer.scrollIntoView({ behavior: 'smooth' });
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                loadingContainer.style.display = 'none';
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Submit Quote Request';
+                
+                messageContainer.innerHTML = `
+                    <div class="message error">
+                        An error occurred. Please try again later.
+                    </div>
+                `;
+                
+                messageContainer.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+
+        // Add smooth animations
+        window.addEventListener('load', function() {
+            document.querySelector('.form-container').style.opacity = '0';
+            document.querySelector('.form-container').style.transform = 'translateY(20px)';
+            
+            setTimeout(() => {
+                document.querySelector('.form-container').style.transition = 'all 0.6s ease';
+                document.querySelector('.form-container').style.opacity = '1';
+                document.querySelector('.form-container').style.transform = 'translateY(0)';
+            }, 100);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,1273 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Toro Mecánico en Cumpleaños, diversión para todas las edades en Santiago de Chile - <a href="https://toromecanicoeventos.cl/juegos/toro-mecanico/">Toro Mecanico</a> Eventos</title>
+    <meta name="description" content="El toro mecánico se ha convertido en una de las atracciones más solicitadas para cumpleaños en Santiago de Chile, gracias a su versatilidad, seguridad y capacidad de adaptarse a distintas edades.">
+    
+    <!-- Fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Muli:200,300,400,600,700,800|Open+Sans:300,400,600,700,800|Lustria:400|Montserrat:100,200,300,400,500,600,700,800,900|Nunito:200,300,400,600,700,800&display=swap' rel='stylesheet'>
+    <link rel="icon" type="image/png" href="/favicon-32x32.png">
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --color-primary: rgb(55, 200, 204);
+            --color-secondary: rgb(248, 55, 93);
+            --color-accent: rgb(208, 223, 87);
+            --color-light: rgb(235, 242, 243);
+            --color-white: #FFFFFF;
+            --color-dark: rgb(7, 42, 77);
+            --color-text: rgb(138, 139, 145);
+            --color-text-dark: rgb(33, 55, 77);
+            --color-footer: rgb(58, 68, 77);
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--color-text);
+            background-color: #f5f5f5;
+        }
+
+        a {
+            color: #03a9f4;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--color-primary);
+        }
+
+        /* Typography */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Muli', sans-serif;
+            color: var(--color-text-dark);
+            margin-bottom: 16px;
+        }
+
+        h1 {
+            font-weight: 300;
+            font-size: 2.5em;
+            line-height: 1.26;
+        }
+
+        h2 {
+            font-weight: 300;
+            font-size: 2em;
+            line-height: 1.143;
+            letter-spacing: -2px;
+        }
+
+        h3 {
+            font-weight: 300;
+            font-size: 1.4em;
+            line-height: 1.25;
+        }
+
+        h4 {
+            font-weight: 600;
+            font-size: 1.2em;
+            line-height: 1.6;
+        }
+
+        p {
+            margin-bottom: 16px;
+        }
+
+        /* Layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: stretch;
+        }
+
+        .col {
+            flex: 1;
+            padding: 15px;
+        }
+
+        .col-12 { flex: 0 0 100%; }
+        .col-6 { flex: 0 0 50%; }
+        .col-4 { flex: 0 0 33.333%; }
+        .col-3 { flex: 0 0 25%; }
+
+        /* Estilos del nuevo encabezado */
+        header {
+            background-color: #51393C;
+            padding: 20px;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .navigation {
+            display: flex;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .logo-container {
+            width: 30%;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo {
+            width: 180px;
+            height: 180px;
+            display: block;
+        }
+        
+        .header-content {
+            width: 70%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .header-title {
+            color: white;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-align: center;
+            font-weight: 700;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+        
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 21px;
+            cursor: pointer;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .menu-toggle span {
+            height: 3px;
+            width: 100%;
+            background-color: white;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+        
+        .main-nav {
+            width: 100%;
+            display: flex;
+            justify-content: flex-end;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            display: block;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-link:hover {
+            color: #ff6b6b;
+        }
+        
+        /* Estilos para submenús */
+        .has-submenu {
+            position: relative;
+        }
+        
+        .submenu {
+            display: none;
+            background-color: #51393C;
+            position: absolute;
+            min-width: 200px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            z-index: 10;
+            padding: 10px 0;
+        }
+        
+        .submenu li {
+            width: 100%;
+        }
+        
+        .submenu .nav-link {
+            padding: 10px 20px;
+        }
+        
+        .has-submenu:hover .submenu {
+            display: block;
+        }
+
+        /* Añadir espacio para el header fijo */
+        body {
+            padding-top: 220px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: var(--color-footer);
+            color: var(--color-white);
+            padding: 150px 0 80px;
+            text-align: center;
+            margin-top: -220px;
+            padding-top: 370px;
+        }
+
+        .hero h1, .hero h2 {
+            color: var(--color-white);
+            text-shadow: 0 0 10px rgba(0,0,0,0.5);
+        }
+
+        .hero .subtitle {
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 2.2em;
+            letter-spacing: -1px;
+            margin-bottom: 20px;
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 80px 0;
+        }
+
+        .post-card {
+            background: var(--color-white);
+            border-radius: 5px;
+            box-shadow: 0 10px 40px rgba(1, 51, 74, 0.15);
+            overflow: hidden;
+            margin-bottom: 40px;
+        }
+
+        .post-image {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+        }
+
+        .post-content {
+            padding: 40px;
+        }
+
+        .post-meta {
+            font-size: 14px;
+            color: var(--color-text);
+            margin-bottom: 20px;
+        }
+
+        .post-meta a {
+            color: #03a9f4;
+        }
+
+        .post-text {
+            color: var(--color-text-dark);
+        }
+
+        .post-text p {
+            color: var(--color-footer);
+        }
+
+        .categories, .tags {
+            margin: 20px 0;
+            padding: 20px 0;
+            border-top: 1px solid #eee;
+        }
+
+        .categories span, .tags span {
+            font-size: 14px;
+            color: var(--color-text);
+            margin-right: 10px;
+        }
+
+        .category-link, .tag-link {
+            display: inline-block;
+            margin: 2px 5px;
+            color: var(--color-text);
+            font-size: 14px;
+        }
+
+        .category-link:hover, .tag-link:hover {
+            color: var(--color-dark);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: rgba(58, 68, 77, 0.06);
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .cta-title {
+            font-family: 'Lustria', serif;
+            font-size: 2.25em;
+            line-height: 1;
+            letter-spacing: -1px;
+            margin-bottom: 20px;
+        }
+
+        .cta-price {
+            font-size: 25px;
+            color: var(--color-dark);
+            margin-bottom: 30px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--color-secondary);
+            color: var(--color-white);
+            padding: 18px 30px;
+            border-radius: 5px;
+            font-family: 'Nunito', sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 20px;
+            border: 2px solid var(--color-primary);
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background: var(--color-primary);
+            color: var(--color-white);
+        }
+
+        /* Gallery Section */
+        .gallery-section {
+            padding: 60px 0;
+            background: #f8f9fa;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .gallery-item {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        /* Post Navigation */
+        .post-navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 1px solid #eee;
+        }
+
+        .nav-previous, .nav-next {
+            flex: 1;
+            max-width: 48%;
+        }
+
+        .nav-next {
+            text-align: right;
+        }
+
+        .post-navigation a {
+            display: block;
+            color: var(--color-text-dark);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .post-navigation a:hover {
+            color: var(--color-primary);
+        }
+
+        .meta-nav {
+            font-size: 12px;
+            text-transform: uppercase;
+            font-weight: 600;
+            color: var(--color-text);
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .post-title {
+            font-size: 14px;
+            line-height: 1.4;
+        }
+
+        /* Estilos del Footer Mejorado */
+        .footer-navigation {
+            background-color: #000;
+            color: white;
+            padding: 40px 0;
+        }
+
+        .footer-navigation .container > div {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
+        .footer-navigation h3 {
+            margin-bottom: 20px;
+            color: white;
+            font-size: 1.3rem;
+        }
+
+        .footer-navigation ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-navigation li {
+            margin-bottom: 10px;
+        }
+
+        .footer-navigation a {
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            transition: color 0.3s ease;
+        }
+
+        .footer-navigation a:hover {
+            color: #4fbfba;
+        }
+
+        .footer-navigation i {
+            margin-right: 10px;
+            color: #4fbfba;
+        }
+
+        /* Footer Principal */
+        .footer {
+            background: #333;
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .social-icons {
+            margin-bottom: 20px;
+        }
+
+        .social-icon {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: #ff6b6b;
+            border-radius: 50%;
+            margin: 0 10px;
+            color: white;
+            line-height: 40px;
+            font-size: 1.2rem;
+            text-decoration: none;
+        }
+
+        .social-icon:hover {
+            background-color: #ff5252;
+        }
+
+        .footer-links {
+            margin-bottom: 20px;
+        }
+
+        .footer-link {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-link:hover {
+            color: #ff6b6b;
+        }
+
+        .footer-bottom {
+            background: #1f1f1f;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .footer-bottom p {
+            color: #999;
+            font-size: 14px;
+        }
+
+        .footer-bottom a {
+            color: var(--color-primary);
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--color-primary);
+            color: var(--color-white);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background: var(--color-dark);
+        }
+
+        /* WhatsApp Float Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            background-color: #25d366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            z-index: 100;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .whatsapp-float:hover {
+            background-color: #128C7E;
+        }
+
+        /* Mobile Styles */
+        @media screen and (max-width: 992px) {
+            .logo-container {
+                width: 100%;
+                justify-content: center;
+                margin-bottom: 10px;
+            }
+            
+            .header-content {
+                width: 100%;
+            }
+            
+            .nav-menu {
+                position: fixed;
+                top: 220px;
+                left: -100%;
+                flex-direction: column;
+                background-color: #51393C;
+                width: 100%;
+                height: calc(100vh - 220px);
+                overflow-y: auto;
+                transition: 0.3s;
+                z-index: 999;
+            }
+            
+            .nav-menu.active {
+                left: 0;
+            }
+            
+            .nav-link {
+                padding: 15px 20px;
+                font-size: 18px;
+                border-bottom: 1px solid rgba(255,255,255,0.1);
+            }
+            
+            .menu-toggle {
+                display: flex;
+                margin-top: 10px;
+                margin-bottom: 10px;
+            }
+            
+            .menu-toggle.active span:nth-child(1) {
+                transform: translateY(9px) rotate(45deg);
+            }
+            
+            .menu-toggle.active span:nth-child(2) {
+                opacity: 0;
+            }
+            
+            .menu-toggle.active span:nth-child(3) {
+                transform: translateY(-9px) rotate(-45deg);
+            }
+            
+            .submenu {
+                position: static;
+                display: none;
+                box-shadow: none;
+                background-color: #433033;
+                padding: 0;
+            }
+            
+            .has-submenu {
+                position: relative;
+            }
+            
+            .submenu-toggle {
+                position: absolute;
+                right: 20px;
+                top: 15px;
+                color: white;
+                font-size: 18px;
+                cursor: pointer;
+                left: 50%;
+                transform: translateX(-50%);
+                display: flex;
+                justify-content: center;
+                width: 30px;
+            }
+            
+            .submenu .nav-link {
+                padding-left: 40px;
+            }
+            
+            .has-submenu.active .submenu {
+                display: block;
+            }
+            
+            .logo {
+                width: 140px;
+                height: 140px;
+            }
+
+            body {
+                padding-top: 160px;
+            }
+
+            .hero {
+                margin-top: -160px;
+                padding-top: 310px;
+            }
+
+            .footer-navigation .container > div {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+        }
+        
+        @media screen and (max-width: 576px) {
+            .logo {
+                width: 100px;
+                height: 100px;
+            }
+            
+            .nav-menu {
+                top: 140px;
+                height: calc(100vh - 140px);
+            }
+
+            body {
+                padding-top: 140px;
+            }
+
+            .hero {
+                margin-top: -140px;
+                padding-top: 290px;
+            }
+
+            .col-3, .col-4, .col-6 {
+                flex: 0 0 100%;
+            }
+
+            .post-content {
+                padding: 20px;
+            }
+
+            .post-navigation {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .nav-previous, .nav-next {
+                max-width: 100%;
+                text-align: left;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 15px;
+            }
+
+            .footer-navigation .container > div {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+
+        /* Utility Classes */
+        .text-center { text-align: center; }
+        .mb-0 { margin-bottom: 0; }
+        .mb-20 { margin-bottom: 20px; }
+        .hidden { display: none; }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+</head>
+<body>
+    <!-- Botón flotante de WhatsApp -->
+    <a href="https://wa.me/+56989639573" class="whatsapp-float" target="_blank" aria-label="Contactar por WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Encabezado mejorado -->
+    <header>
+        <div class="navigation">
+            <div class="logo-container">
+                <img src="https://toromecanicoeventos.cl/Toro-Mecanico/arriendo-toro-mecanico.webp" 
+                    alt="Logo de Toro Mecánico Eventos - Arriendo de toro mecanico en Santiago" 
+                    class="logo" 
+                    title="Toro Mecánico Eventos - Prende Tu Fiesta">
+            </div>
+            <div class="header-content">
+                <h1 class="header-title">TORO MECÁNICO</h1>
+                <div class="menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <nav class="main-nav">
+                    <ul class="nav-menu">
+                        <li><a href="/" class="nav-link">HOME</a></li>
+                        <li class="has-submenu">
+                            <a href="/nosotros/" class="nav-link">NOSOTROS</a>
+                            <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                            <ul class="submenu">
+                                <li><a href="/nosotros/#nuestra-historia" class="nav-link">Nuestra Historia</a></li>
+                                <li><a href="/nosotros/#valores" class="nav-link">Valores</a></li>
+                                <li><a href="/nosotros/#testimonios" class="nav-link">Testimonios</a></li>
+                            </ul>
+                        </li>
+                        <li class="has-submenu">
+                            <a href="/juegos/" class="nav-link">JUEGOS ARRIENDO</a>
+                            <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                            <ul class="submenu">
+                                <li><a href="/juegos/" class="nav-link">Todos los Juegos</a></li>
+                                <li><a href="/juegos/infantiles/" class="nav-link">Juegos Infantiles</a></li>
+                                <li><a href="/juegos/adultos/" class="nav-link">Juegos para Adultos</a></li>
+                            </ul>
+                        </li>
+                        <li class="has-submenu">
+                            <a href="/juegos/toro-mecanico/" class="nav-link">TORO MECÁNICO ARRIENDO</a>
+                            <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                            <ul class="submenu">
+                                <li><a href="/juegos/toro-mecanico/" class="nav-link">Modelos Disponibles</a></li>
+                                <li><a href="/juegos/toro-mecanico/#precios" class="nav-link">Precios y Paquetes</a></li>
+                                <li><a href="https://wa.me/+56989639573?text=Quiero%20reservar%20el%20Toro%20Mecánico" class="nav-link" target="_blank">Reserva Ahora</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="/juegos/eliminador/" class="nav-link">ELIMINADOR 5 METROS</a></li>
+                        <li><a href="/galeria/" class="nav-link">GALERÍA</a></li>
+                        <li><a href="/blog/" class="nav-link">BLOG JUEGOS</a></li>
+                        <li><a href="/contacto/" class="nav-link">CONTACTO</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h2 class="subtitle">Toro mecánico</h2>
+            <h1>Toro Mecánico en Cumpleaños, diversión para todas las edades en Santiago de Chile</h1>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <div class="row">
+                <div class="col col-12">
+                    <article class="post-card">
+                        <img src="toro-mecanico.webp" alt="Toro mecánico en Chile" class="post-image">
+                        
+                        <div class="post-content">
+                            <div class="post-meta">
+                                <span>by </span>
+                                <a href="https://toromecanicoeventos.cl/juegos/toro-mecanico/">toro mecanico</a>
+                                <span> on </span>
+                                <a href="https://toromecanicoeventos.cl/">arriendo de toro mecanico</a>
+                            </div>
+
+                            <div class="post-text">
+                                <p>El <strong><a href="https://toromecanicoeventos.cl/">toro mecánico</a></strong> se ha convertido en una de las atracciones más solicitadas para cumpleaños en Santiago de Chile, gracias a su versatilidad, seguridad y capacidad de adaptarse a distintas edades. Tanto en celebraciones infantiles, como en cumpleaños de adolescentes o adultos, esta atracción garantiza una experiencia cargada de risas, adrenalina y buenos momentos.</p>
+
+                                <p>Su popularidad radica no solo en lo divertido que es montar un toro mecánico, sino también en lo entretenido que resulta para quienes observan.</p>
+
+                                <h3>Toro mecánico en <strong>cumpleaños Infantiles</strong></h3>
+
+                                <h4><strong>Diversión segura para los más pequeños</strong></h4>
+
+                                <p>En cumpleaños de niños, el toro mecánico es una excelente opción para ofrecer una experiencia <a href="https://dle.rae.es/din%C3%A1mico"><em>dinámica</em></a> sin salir de un entorno seguro. Los equipos modernos cuentan con <strong>colchones inflables de protección</strong> y <strong>velocidades controladas</strong>, lo que permite ajustar la intensidad del movimiento a las capacidades de los más pequeños. Los operadores profesionales de empresas como Prende Tu Fiesta se encargan de adaptar el toro para que los niños disfruten sin riesgo, mientras los padres pueden observar con tranquilidad.</p>
+
+                                <p>Además de lo divertido que resulta montar el toro, los niños también disfrutan viendo a sus amigos caer de forma graciosa, lo que convierte la experiencia en un momento de risa colectiva. El toro mecánico es ideal para integrarse con otras actividades como camas elásticas, pintacaritas o taca tacas, generando una jornada llena de movimiento y alegría.</p>
+
+                                <figure>
+                                    <img src="toro-mecanico-santiago.webp" alt="Toro mecánico en Santiago" style="width: 100%; border-radius: 5px;">
+                                    <figcaption style="text-align: center; margin-top: 10px; font-style: italic;"><a href="https://toromecanicoeventos.cl/">Arriendo de Toro mecánico</a> en Región Metropolitana</figcaption>
+                                </figure>
+
+                                <h3>Toro mecánico en <strong>cumpleaños de adolescentes</strong></h3>
+
+                                <h4><strong>Reto, risas y competencia sana</strong></h4>
+
+                                <p>Para los adolescentes, el toro mecánico representa un <strong>desafío</strong>. A esa edad, donde la energía y la necesidad de destacarse están a flor de piel, montar el toro y tratar de resistir el mayor tiempo posible se convierte en una competencia emocionante. En cumpleaños de adolescentes, el toro mecánico se transforma en el punto de encuentro, donde todos quieren participar o al menos ver a sus amigos en acción.</p>
+
+                                <p>Los operadores pueden <strong>ajustar la velocidad y los movimientos del toro</strong> para aumentar la dificultad, generando una experiencia más intensa, pero igualmente segura. Además, se pueden organizar competencias, cronómetros, o incluso premiar al participante que logre mantenerse por más tiempo, agregando una <a href="https://dle.rae.es/din%C3%A1mico"><em>dinámica</em></a> extra al cumpleaños.</p>
+
+                                <figure>
+                                    <img src="toro-mecanico-evento.webp" alt="Toro mecánico" style="width: 100%; border-radius: 5px;">
+                                    <figcaption style="text-align: center; margin-top: 10px; font-style: italic;"><a href="https://toromecanicoeventos.cl/">Arriendo de Toro mecánico</a></figcaption>
+                                </figure>
+
+                                <h3><a href="https://toromecanicoeventos.cl/">Arriendo de toro mecánico</a> en <strong>cumpleaños de adultos</strong></h3>
+
+                                <h4><strong>Humor y adrenalina para celebraciones inolvidables</strong></h4>
+
+                                <p>En celebraciones de adultos, el toro mecánico aporta un <strong>toque lúdico y festivo</strong> que rompe con la rutina. Es perfecto para quienes quieren revivir su infancia o simplemente divertirse en un ambiente relajado. Además, es una excelente forma de animar cumpleaños temáticos, como fiestas vaqueras o country, donde el toro mecánico encaja a la perfección.</p>
+
+                                <p>Este tipo de cumpleaños suele estar acompañado de música, concursos y bebidas, por lo que el toro se convierte en una actividad estrella que genera interacción, risas y recuerdos memorables. Incluso en cumpleaños sorpresa, es habitual que el festejado sea el primero en subir al toro, en medio de aplausos y bromas.</p>
+
+                                <p>El <strong>toro mecánico en cumpleaños</strong> es una apuesta segura para transformar cualquier celebración en una experiencia única. Ya sea para niños, adolescentes o adultos, esta atracción ofrece diversión controlada, interacción social y momentos inolvidables. En Santiago de Chile, el <a href="https://toromecanicoeventos.cl/juegos/toro-mecanico/">arriendo de toro mecánico</a> se ha consolidado como una opción versátil, segura y muy popular para quienes buscan que su cumpleaños sea recordado por todos.</p>
+
+                                <h2><strong>Preguntas frecuentes sobre el arriendo de <a href="https://toromecanicoeventos.cl/juegos/toro-mecanico/">toro mecánico</a> para cumpleaños</strong></h2>
+
+                                <ol>
+                                    <li><strong>¿A partir de qué edad se puede usar el toro mecánico?</strong><br>El toro mecánico puede ser utilizado por niños desde los 6 años, siempre bajo supervisión y con ajustes especiales de velocidad y movimiento.</li>
+                                    <li><strong>¿Es seguro el toro mecánico para niños y adultos?</strong><br>Sí. El equipo cuenta con <strong>colchones inflables, sistema de parada automática y operador profesional</strong>, lo que garantiza una experiencia segura para todas las edades.</li>
+                                    <li><strong>¿Cuánto espacio se necesita para instalar el toro mecánico?</strong><br>Se recomienda un área libre de al menos <strong>5×5 metros</strong> en superficie nivelada, ya sea en interior o exterior.</li>
+                                    <li><strong>¿Se puede instalar en lugares cerrados o techados?</strong><br>Sí, siempre que el espacio tenga el tamaño adecuado y <strong>una altura mínima de 2,5 metros</strong> para permitir el uso cómodo y seguro.</li>
+                                    <li><strong>¿Incluye operador o se debe manejar por cuenta propia?</strong><br>El servicio incluye un <strong>operador capacitado</strong> que controla el toro durante todo el evento.</li>
+                                    <li><strong>¿Se puede usar el toro mecánico bajo la lluvia?</strong><br>No se recomienda el uso en condiciones climáticas adversas. Para eventos al aire libre, se sugiere contar con una carpa o plan B en caso de lluvia.</li>
+                                    <li><strong>¿Qué incluye el arriendo del toro mecánico?</strong><br>Incluye <strong>transporte, instalación, colchón de seguridad, sistema de control, operador profesional y desmontaje posterior.</strong></li>
+                                    <li><strong>¿Puede usarse el toro en eventos mixtos con niños y adultos?</strong><br>Sí, el operador ajusta la intensidad según la edad y habilidades del participante para asegurar una experiencia adecuada para todos.</li>
+                                </ol>
+                            </div>
+
+                            <div class="categories">
+                                <span>Categories:</span>
+                                <a href="https://toromecanicoeventos.cl/juegos/toro-mecanico/" class="category-link">Toro Mecánico</a>
+                            </div>
+
+                            <div class="tags">
+                                <span>Tags:</span>
+                                <a href="https://toromecanicoeventos.cl/" class="tag-link">Toro mecánico en cumpleaños</a>
+                                <a href="https://toromecanicoeventos.cl/" class="tag-link">Toro mecánico en cumpleaños Infantiles</a>
+                                <a href="https://toromecanicoeventos.cl/" class="tag-link">Toro mecánico en cumpleaños de adolescentes</a>
+                                <a href="https://toromecanicoeventos.cl/" class="tag-link">El toro mecánico en cumpleaños de adultos</a>
+                                <a href="https://toromecanicoeventos.cl/" class="tag-link">toro mecánico seguro para niños y adultos</a>
+                                <a href="https://toromecanicoeventos.cl/tag/reservar-toro-mecanico-en-santiago/" class="tag-link">reservar toro mecánico en Santiago</a>
+                            </div>
+
+                            <!-- Navigation Buttons -->
+                            <div class="post-navigation">
+                                <div class="nav-previous">
+                                    <a href="https://toromecanicoeventos.cl/juegos/toro-mecanico/" rel="prev">
+                                        <span class="meta-nav">Anterior</span>
+                                        <span class="post-title">¿Qué es un toro mecánico?</span>
+                                    </a>
+                                </div>
+                                <div class="nav-next">
+                                    <a href="https://toromecanicoeventos.cl/" rel="next">
+                                        <span class="meta-nav">Siguiente</span>
+                                        <span class="post-title">Toro Mecánico para despedidas de solteras: diversión, risas y recuerdos imborrables</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2 class="cta-title"><strong><a href="https://toromecanicoeventos.cl/juegos/toro-mecanico/">Toro Mecánico</a></strong> en eventos<br>en Santiago</h2>
+            <div class="cta-price">
+                Precio $200.000- <a href="https://toromecanicoeventos.cl/juegos/toro-mecanico/"><strong>ver condiciones</strong></a>
+            </div>
+            <a href="https://wa.me/56989639573" class="cta-button">
+                Reserva tu toro mecánico<br><strong>+569 8963 9573</strong>
+            </a>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery-section">
+        <div class="container">
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="toro-mecanico-eventos.webp" alt="Toro mecánico evento 1">
+                </div>
+                <div class="gallery-item">
+                    <img src="toro-mecanico-arriendo.webp" alt="Toro mecánico evento 2">
+                </div>
+                <div class="gallery-item">
+                    <img src="toro-mecanico-evento.webp" alt="Toro mecánico evento 3">
+                </div>
+                <div class="gallery-item">
+                    <img src="toro-mecanico5.webp" alt="Prende Tu Fiesta">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bloque de navegación adicional -->
+    <div class="footer-navigation">
+        <div class="container">
+            <div>
+                <!-- Columna MENÚ -->
+                <div>
+                    <h3>MENÚ</h3>
+                    <ul>
+                        <li>
+                            <a href="https://toromecanicoeventos.cl/">
+                                <i class="fas fa-chevron-right"></i>
+                                Home
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://toromecanicoeventos.cl/nosotros/">
+                                <i class="fas fa-chevron-right"></i>
+                                Nosotros
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://toromecanicoeventos.cl/juegos/">
+                                <i class="fas fa-chevron-right"></i>
+                                Juegos
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://toromecanicoeventos.cl/galeria/">
+                                <i class="fas fa-chevron-right"></i>
+                                Galería
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://toromecanicoeventos.cl/juegos/contacto/">
+                                <i class="fas fa-chevron-right"></i>
+                                Contacto
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Columna ARRIENDO DE JUEGOS -->
+                <div>
+                    <h3>ARRIENDO DE JUEGOS</h3>
+                    <ul>
+                        <li>
+                            <a href="/arriendo-taca-taca-santiago/">
+                                <i class="fas fa-chevron-right"></i>
+                                <strong>Arriendo Taca Tacas</strong>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/juegos/taca-taca-4-jugadores/">
+                                <i class="fas fa-chevron-right"></i>
+                                Taca taca 4 jugadores
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/juegos/taca-taca-8-jugadores/">
+                                <i class="fas fa-chevron-right"></i>
+                                Taca taca 8 jugadores
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/juegos/toro-mecanico/">
+                                <i class="fas fa-chevron-right"></i>
+                                <strong>Arriendo Toro Mecánico</strong>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/juegos/eliminador/">
+                                <i class="fas fa-chevron-right"></i>
+                                Juego El Eliminador
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/juegos/tabla-de-surf/">
+                                <i class="fas fa-chevron-right"></i>
+                                Tabla de Surf
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/juegos/mesa-de-jockey/">
+                                <i class="fas fa-chevron-right"></i>
+                                Mesa de Hockey
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Columna JUEGOS EN ARRIENDO -->
+                <div>
+                    <h3>JUEGOS EN ARRIENDO</h3>
+                    <ul>
+                        <li>
+                            <a href="/juegos/mesa-de-ping-pong/">
+                                <i class="fas fa-chevron-right"></i>
+                                Mesa de Ping Pong
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/juegos/arcade/">
+                                <i class="fas fa-chevron-right"></i>
+                                Arcade
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/juegos/infable-minios/">
+                                <i class="fas fa-chevron-right"></i>
+                                Inflable Minios
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/juegos/maquina-de-cabritas/">
+                                <i class="fas fa-chevron-right"></i>
+                                Cabrita
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/juegos/maquina-de-algodon/">
+                                <i class="fas fa-chevron-right"></i>
+                                Algodón
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/juegos/chispa-fria/">
+                                <i class="fas fa-chevron-right"></i>
+                                Chispa Fría
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/juegos/camara-360/">
+                                <i class="fas fa-chevron-right"></i>
+                                Camara 360°
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/juegos/cabina-fotografica/">
+                                <i class="fas fa-chevron-right"></i>
+                                Cabina Fotografica
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Columna CONTACTO -->
+                <div>
+                    <h3>CONTACTO</h3>
+                    <ul>
+                        <li>
+                            <a href="tel:+56989639573">
+                                <i class="fas fa-phone"></i>
+                                +569 8963 9573
+                            </a>
+                        </li>
+                        <li>
+                            <a href="mailto:info@prendetufiesta.cl">
+                                <i class="fas fa-envelope"></i>
+                                info@prendetufiesta.cl
+                            </a>
+                        </li>
+                        <li>
+                            <span>
+                                <i class="fas fa-map-marker-alt"></i>
+                                Franciscanos 650, Pudahuel
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pie de página -->
+    <footer class="footer">
+        <div class="container">
+            <div class="social-icons">
+                <a href="https://www.facebook.com/profile.php?id=100054380567067" class="social-icon" target="_blank" aria-label="Síguenos en Facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://www.instagram.com/toromecanicostgo/" class="social-icon" target="_blank" aria-label="Síguenos en Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.youtube.com/watch?v=LQ0-xlQw0yI" class="social-icon" target="_blank" aria-label="Visita nuestro canal de YouTube">
+                    <i class="fab fa-youtube"></i>
+                </a>
+            </div>
+            <div class="footer-links">
+                <a href="#" class="footer-link">Términos y Condiciones</a>
+                <a href="#" class="footer-link">Política de Privacidad</a>
+                <a href="/blog/" class="footer-link">Blog</a>
+            </div>
+        </div>
+    </footer>
+
+    <div class="footer-bottom">
+        <div class="container">
+            <p>© 2025 <strong>Toro Mecánico</strong>, Eventos - Arriendo de toros mecánicos para fiestas.<br>
+            Desarrollo <a href="https://toromecanicoeventos.cl/" target="_blank">Toro Mecanico</a></p>
+        </div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="backToTop">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/>
+        </svg>
+    </div>
+
+    <script>
+        // Mobile Navigation Toggle
+        const hamburger = document.querySelector('.menu-toggle');
+        const nav = document.querySelector('.nav-menu');
+
+        hamburger.addEventListener('click', function() {
+            hamburger.classList.toggle('active');
+            nav.classList.toggle('active');
+        });
+
+        // Close mobile nav when clicking on a link
+        nav.addEventListener('click', function(e) {
+            if (e.target.tagName === 'A') {
+                nav.classList.remove('active');
+                hamburger.classList.remove('active');
+            }
+        });
+
+        // Para los submenús en móvil
+        const hasSubmenuItems = document.querySelectorAll('.has-submenu');
+        
+        hasSubmenuItems.forEach(item => {
+            const submenuToggle = item.querySelector('.submenu-toggle');
+            
+            if (submenuToggle) {
+                submenuToggle.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    item.classList.toggle('active');
+                });
+            }
+        });
+
+        // Header scroll effect
+        const header = document.querySelector('header');
+        let lastScrollTop = 0;
+
+        window.addEventListener('scroll', function() {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            if (scrollTop > 100) {
+                header.style.background = 'rgba(81, 57, 60, 0.95)';
+                header.style.backdropFilter = 'blur(10px)';
+            } else {
+                header.style.background = '#51393C';
+                header.style.backdropFilter = 'none';
+            }
+            
+            lastScrollTop = scrollTop;
+        });
+
+        // Back to top button
+        const backToTop = document.getElementById('backToTop');
+
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        backToTop.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Gallery lightbox effect (simple)
+        const galleryItems = document.querySelectorAll('.gallery-item img');
+        galleryItems.forEach(item => {
+            item.addEventListener('click', function() {
+                const newWindow = window.open();
+                newWindow.document.write(`
+                    <html>
+                        <head><title>Imagen - Toro Mecánico</title></head>
+                        <body style="margin:0; background:#000; display:flex; justify-content:center; align-items:center; min-height:100vh;">
+                            <img src="${this.src}" style="max-width:100%; max-height:100%; object-fit:contain;" alt="${this.alt}">
+                        </body>
+                    </html>
+                `);
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
