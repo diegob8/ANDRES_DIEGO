@@ -21,19 +21,22 @@
         }
         
         /* Encabezado */
-        header {
-            background-color: #51393C;
-            padding: 20px;
-            width: 100%;
-        }
+header {
+    background-color: #51393C;
+    padding: 10px 20px; /* Reducido para que la barra sea delgada */
+    width: 100%;
+    position: relative;
+    z-index: 10000; /* Asegura que el menú flote sobre las imágenes */
+}
         
         .navigation {
-            display: flex;
-            flex-wrap: wrap;
-            max-width: 1200px;
-            margin: 0 auto;
-            position: relative;
-        }
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    overflow: visible; /* Permite que los submenús salgan de la barra café */
+}
         
         .logo-container {
             width: 30%;
@@ -41,11 +44,11 @@
             align-items: center;
         }
         
-        .logo {
-            width: 180px;
-            height: 180px;
-            display: block;
-        }
+.logo {
+    width: 110px; 
+    height: auto;
+    display: block;
+}
         
         .header-content {
             width: 70%;
@@ -55,13 +58,12 @@
         }
         
         .header-title {
-            color: white;
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            text-align: center;
-            font-weight: 700;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
-        }
+    color: white;
+    font-size: 1.8rem; 
+    margin-bottom: 10px;
+    text-align: center;
+    font-weight: 700;
+}
         
         .menu-toggle {
             display: none;
@@ -113,16 +115,32 @@
             position: relative;
         }
         
-        .submenu {
-            display: none;
-            background-color: #51393C;
-            position: absolute;
-            min-width: 200px;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-            z-index: 10;
-            padding: 10px 0;
-        }
-        
+      .submenu {
+    display: none;
+    background-color: #51393C;
+    position: absolute;
+    top: 100%; 
+    left: 0;
+    min-width: 200px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.5);
+    z-index: 10001;
+    padding: 10px 0;
+}
+
+/* Área invisible para mantener el menú abierto al mover el mouse */
+.has-submenu::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 20px; 
+    z-index: 1;
+}
+
+.has-submenu:hover .submenu {
+    display: block;
+}
         .submenu li {
             width: 100%;
         }
@@ -421,11 +439,11 @@
         }
         
         .service-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-        }
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Esto evita que la imagen se vea estirada */
+    display: block;    /* Asegura que ocupe su lugar */
+}
         
         .service-title {
             position: absolute;
@@ -673,10 +691,9 @@
     <header>
         <div class="navigation">
             <div class="logo-container">
-                <img src="Toro Mecanico/arriendo-toro-mecanico.webp" 
-                    alt="Logo de Toro Mecánico Eventos - Arriendo de toro mecanico en Santiago" 
-                    class="logo" 
-                    title="Toro Mecánico Eventos - Prende Tu Fiesta">
+               <img src="https://toromecanicoeventos.cl/toro-mecanico/arriendo-toro-mecanico.webp" 
+     alt="Logo de Toro Mecánico Eventos" 
+     class="logo">
             </div>
             <div class="header-content">
                 <h1 class="header-title">TORO MECÁNICO</h1>
@@ -729,11 +746,10 @@
     <section class="hero-container">
         <div class="hero-wrapper">
             <img 
-                src="Toro Mecanico/juegos-arriendo.webp" 
-                alt="Todos los juegos disponibles para arriendo en Santiago" 
-                class="hero-background-img"
-                title="Juegos de arriendo para eventos y fiestas"
-            >
+                src="https://toromecanicoeventos.cl/toro-mecanico/juegos-arriendo.webp" 
+     alt="Todos los juegos disponibles para arriendo en Santiago" 
+     class="hero-background-img">
+            
             
             <div class="hero-overlay"></div>
             
@@ -761,284 +777,277 @@
                 <p><strong>El toro mecánico</strong> es el centro de atención, ofreciendo un desafío emocionante y seguro, ideal para cualquier ocasión. Nos encargamos de todo, desde la entrega y montaje hasta la operación, asegurando una experiencia sin preocupaciones para ti y tus invitados. Haz de tu evento un momento inolvidable con Prende Tu Fiesta.</p>
             </div>
             
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-image-container">
-                        <img src="Toro Mecanico/toro-mecanico5.webp" 
-                            alt="🐂 Toro Mecanico - 🤠 Toro Mecánico para eventos en Santiago" 
-                            class="service-img"
-                            title="Arriendo de Toro Mecánico - Juego para eventos">
-                            <h3 class="service-title">TORO MECÁNICO</h3>
-                            <p class="service-description-overlay">🐂Disfruta con el arriendo del popular juego del toro mecánico en Santiago🤠</p>
-                   </div>
-                   <div class="service-buttons">
-                       <a href="#" class="btn btn-service">VER VIDEO</a>
-                       <a href="#" class="btn btn-service">DETALLES DEL SERVICIO</a>
-                   </div>
-               </div>
-               
-               <div class="service-card">
-                   <div class="service-image-container">
-                       <img src="Toro Mecanico/reloj-derribador-eliminador.webp" 
-                           alt="Toro Mecanico - Toro Mecánico para eventos en Santiago" 
-                           class="service-img"
-                           title="⏱️ Reloj Derribador 5 metros - 🎲 Juego tambien conocido como relojito">
-                       <h3 class="service-title">RELOJ DERRIBADOR 5 METROS DIÁMETRO</h3>
-                       <p class="service-description-overlay">⏱️Diviértete con el arriendo del juego de relojito para tu evento🎲</p>
-                   </div>
-                   <div class="service-buttons">
-                       <a href="#" class="btn btn-service">VER VIDEO</a>
-                       <a href="#" class="btn btn-service">DETALLES DEL SERVICIO</a>
-                   </div>
-               </div>
-               
-               <div class="service-card">
-                   <div class="service-image-container">
-                       <img src="Toro Mecanico/reloj-derribador-eliminador7.webp" 
-                           alt="Toro Mecanico - Toro Mecánico para eventos en Santiago" 
-                           class="service-img"
-                           title="🕒El Eliminador 7 metros - 💥 Juego de competencia para eventos grandes">
-                       <h3 class="service-title">ELIMINADOR 7 METROS DIÁMETRO</h3>
-                       <p class="service-description-overlay">🕒El juego de El Eliminador más grande para tu fiesta o evento💥</p>
-                   </div>
-                   <div class="service-buttons">
-                       <a href="#" class="btn btn-service">VER VIDEO</a>
-                       <a href="#" class="btn btn-service">DETALLES DEL SERVICIO</a>
-                   </div>
-               </div>
-               
-               <div class="service-card">
-                   <div class="service-image-container">
-                       <img src="Toro Mecanico/tabla-de-surf.webp" 
-                           alt="Toro Mecanico - Toro Mecánico para eventos en Santiago" 
-                            class="service-img"
-                            title="🏄 Tabla de Surf Mecánica - 🌊 Juego de equilibrio y diversión">
-                       <h3 class="service-title">TABLA DE SURF</h3>
-                       <p class="service-description-overlay">🏄Mantén el equilibrio en la tabla, mientras simula el movimiento de las olas🌊</p>
-                   </div>
-                   <div class="service-buttons">
-                       <a href="#" class="btn btn-service">VER VIDEO</a>
-                       <a href="#" class="btn btn-service">DETALLES DEL SERVICIO</a>
-                   </div>
-               </div>
-               
-               <div class="service-card">
-                   <div class="service-image-container">
-                       <img src="Toro Mecanico/juego-pene-mecanico.webp" 
-                           alt="Toro Mecanico - Toro Mecánico para eventos en Santiago" 
-                           class="service-img"
-                           title="🔞 Pene Mecánico - 🍆 Juego exclusivo para despedidas de soltera 🍄 ">
-                       <h3 class="service-title">PENE MECÁNICO</h3>
-                       <p class="service-description-overlay">🔞Juego para especial 🍄 para hacer más divertidas tu despedida de soltera🍆</p>
-                       <!-- 
-                       <dd class="wp-caption-text gallery-caption service-description-overlay" id="gallery-pene-mecanico">
-                           Toro mecánico en forma de pene para despedidas atrevidas. El juego MÁS solicitado para despedidas hot. +56989639573 info@prendetufiesta.cl
-                       </dd>-->
-                   </div>
-                   <div class="service-buttons">
-                       <a href="#" class="btn btn-service">VER VIDEO</a>
-                       <a href="#" class="btn btn-service">DETALLES DEL SERVICIO</a>
-                   </div>
-               </div>
-               
-               <div class="service-card">
-                   <div class="service-image-container">
-                       <img src="Toro Mecanico/taca-taca-grande.webp" 
-                           alt="Toro Mecanico - Toro Mecánico para eventos en Santiago" 
-                           class="service-img"
-                           title="⚽ Taca Taca 8 Jugadores - 🥅 El clásico juego de mesa ahora más grande">
-                       <h3 class="service-title">TACA TACA 8 JUGADORES</h3>
-                       <p class="service-description-overlay">⚽El clásico juego de taca taca para eventos, fiestas y cumpleaños en Santiago🥅</p>
-                   </div>
-                   <div class="service-buttons">
-                       <a href="#" class="btn btn-service">VER VIDEO</a>
-                       <a href="#" class="btn btn-service">DETALLES DEL SERVICIO</a>
-                   </div>
-               </div>
+<div class="services-grid">
+    <div class="service-card">
+        <div class="service-image-container">
+            <img src="https://toromecanicoeventos.cl/toro-mecanico/toro-mecanico5.webp" 
+                 alt="🐂 Toro Mecanico - 🤠 Toro Mecánico para eventos en Santiago" 
+                 class="service-img"
+                 title="Arriendo de Toro Mecánico - Juego para eventos">
+            <h3 class="service-title">TORO MECÁNICO</h3>
+            <p class="service-description-overlay">🐂Disfruta con el arriendo del popular juego del toro mecánico en Santiago🤠</p>
+        </div>
+        <div class="service-buttons">
+            <a href="#" class="btn btn-service">VER VIDEO</a>
+            <a href="#" class="btn btn-service">DETALLES DEL SERVICIO</a>
+        </div>
+    </div>
 
-               <div class="service-card">
-                   <div class="service-image-container">
-                       <img src="Toro Mecanico/yenga-gigante.webp" 
-                           alt="Toro Mecanico - Toro Mecánico para eventos en Santiago" 
-                           class="service-img"
-                           title="🏗️ Juego Ludico - 📦 Yenga gigante para cuempleaños">
-                       <h3 class="service-title">YENGA GIGANTE</h3>
-                       <p class="service-description-overlay">🏗️Diversión en equilibrio. Retira bloques con cuidado. ¡Demuestra tu habilidad!📦</p>
-                   </div>
-                   <div class="service-buttons">
-                       <a href="#" class="btn btn-service">VER VIDEO</a>
-                       <a href="#" class="btn btn-service">DETALLES DEL SERVICIO</a>
-                   </div>
-               </div>
+    <div class="service-card">
+        <div class="service-image-container">
+            <img src="https://toromecanicoeventos.cl/toro-mecanico/reloj-derribador-eliminador.webp" 
+                 alt="Toro Mecanico - Toro Mecánico para eventos en Santiago" 
+                 class="service-img"
+                 title="⏱️ Reloj Derribador 5 metros - 🎲 Juego tambien conocido como relojito">
+            <h3 class="service-title">RELOJ DERRIBADOR 5 METROS DIÁMETRO</h3>
+            <p class="service-description-overlay">⏱️Diviértete con el arriendo del juego de relojito para tu evento🎲</p>
+        </div>
+        <div class="service-buttons">
+            <a href="#" class="btn btn-service">VER VIDEO</a>
+            <a href="#" class="btn btn-service">DETALLES DEL SERVICIO</a>
+        </div>
+    </div>
 
-               <div class="service-card">
-                   <div class="service-image-container">
-                       <img src="Toro Mecanico/taca-taca-futbol-mesa.webp" 
-                           alt="Toro Mecanico - Toro Mecánico para eventos en Santiago" 
-                           class="service-img"
-                           title="🥅 Taca Taca 4 Jugadores - ⚽ El clásico que nunca pasa de moda...">
-                       <h3 class="service-title">TACA TACA 4 JUGADORES</h3>
-                       <p class="service-description-overlay">🥅Golpea, ríe y compite. El clásico de toda fiesta. ¡Pura emoción en equipo!⚽</p>
-                   </div>
-                   <div class="service-buttons">
-                       <a href="#" class="btn btn-service">VER VIDEO</a>
-                       <a href="#" class="btn btn-service">DETALLES DEL SERVICIO</a>
-                   </div>
-               </div>
+    <div class="service-card">
+        <div class="service-image-container">
+            <img src="https://toromecanicoeventos.cl/toro-mecanico/reloj-derribador-eliminador7.webp" 
+                 alt="Toro Mecanico - Toro Mecánico para eventos en Santiago" 
+                 class="service-img"
+                 title="🕒El Eliminador 7 metros - 💥 Juego de competencia para eventos grandes">
+            <h3 class="service-title">ELIMINADOR 7 METROS DIÁMETRO</h3>
+            <p class="service-description-overlay">🕒El juego de El Eliminador más grande para tu fiesta o evento💥</p>
+        </div>
+        <div class="service-buttons">
+            <a href="#" class="btn btn-service">VER VIDEO</a>
+            <a href="#" class="btn btn-service">DETALLES DEL SERVICIO</a>
+        </div>
+    </div>
 
-               <div class="service-card">
-                   <div class="service-image-container">
-                       <img src="Toro Mecanico/air-hockey.webp" 
-                           alt="Toro Mecanico - Toro Mecánico para eventos en Santiago" 
-                           class="service-img"
-                           title="🏒 Arriendo Mesa de Air Hockey en Santiago - 🏑 Juego de mesa para eventos">
-                       <h3 class="service-title">Mesa de hockey</h3>
-                       <p class="service-description-overlay">🏒AIR JOCKEY: ¡DUELO RÁPIDO! 2 JUGADORES REFLÉJOS Y PUNTERÍA🏑</p>
-                   </div>
-                   <div class="service-buttons">
-                       <a href="#" class="btn btn-service">VER VIDEO</a>
-                       <a href="#" class="btn btn-service">DETALLES DEL SERVICIO</a>
-                   </div>
-               </div>
+    <div class="service-card">
+        <div class="service-image-container">
+            <img src="https://toromecanicoeventos.cl/toro-mecanico/tabla-de-surf.webp"
+                 alt="Toro Mecanico - Toro Mecánico para eventos en Santiago" 
+                 class="service-img"
+                 title="🏄 Tabla de Surf Mecánica - 🌊 Juego de equilibrio y diversión">
+            <h3 class="service-title">TABLA DE SURF</h3>
+            <p class="service-description-overlay">🏄Mantén el equilibrio en la tabla, mientras simula el movimiento de las olas🌊</p>
+        </div>
+        <div class="service-buttons">
+            <a href="#" class="btn btn-service">VER VIDEO</a>
+            <a href="#" class="btn btn-service">DETALLES DEL SERVICIO</a>
+        </div>
+    </div>
 
-               <div class="service-card">
-                   <div class="service-image-container">
-                       <img src="Toro Mecanico/mesa-ping-pong.webp" 
-                           alt="Toro Mecanico - Toro Mecánico para eventos en Santiago" 
-                           class="service-img"
-                           title="🏓 Juego de Mesa de Ping Pong 🏓">
-                       <h3 class="service-title">MESA DE PING PONG</h3>
-                       <p class="service-description-overlay">🏓RÁPIDO, DIVERTIDO GOLPEA, REBOTA Y GANA. ¿DOS MÁS O MUERE MUERE?🏓</p>
-                   </div>
-                   <div class="service-buttons">
-                       <a href="#" class="btn btn-service">VER VIDEO</a>
-                       <a href="#" class="btn btn-service">DETALLES DEL SERVICIO</a>
-                   </div>
-               </div>
+    <div class="service-card">
+        <div class="service-image-container">
+            <img src="https://toromecanicoeventos.cl/toro-mecanico/juego-pene-mecanico.webp" 
+                 alt="Toro Mecanico - Toro Mecánico para eventos en Santiago" 
+                 class="service-img"
+                 title="🔞 Pene Mecánico - 🍆 Juego exclusivo para despedidas de soltera 🍄 ">
+            <h3 class="service-title">PENE MECÁNICO</h3>
+            <p class="service-description-overlay">🔞Juego para especial 🍄 para hacer más divertidas tu despedida de soltera🍆</p>
+        </div>
+        <div class="service-buttons">
+            <a href="#" class="btn btn-service">VER VIDEO</a>
+            <a href="#" class="btn btn-service">DETALLES DEL SERVICIO</a>
+        </div>
+    </div>
 
-               <div class="service-card">
-                   <div class="service-image-container">
-                       <img src="Toro Mecanico/juego-de-la-rana.webp" 
-                           alt="Toro Mecanico - Toro Mecánico para eventos en Santiago" 
-                           class="service-img"
-                           title="🐸 Juego Tradicional -  🎯El clásico juego de acertar a la rana con discos metálicos 🎯">
-                       <h3 class="service-title">JUEGO DE LA RANA</h3>
-                       <p class="service-description-overlay">🐸 RANA CLÁSICA 🐸. 🎯LANZA PRUEBA TU PUNTERÍA, Tienes 3 LANZAMIENTOS. ¡GANA PREMIO!🎯</p>
-                   </div>
-                   <div class="service-buttons">
-                       <a href="#" class="btn btn-service">VER VIDEO</a>
-                       <a href="#" class="btn btn-service">DETALLES DEL SERVICIO</a>
-                   </div>
-               </div>
+    <div class="service-card">
+        <div class="service-image-container">
+            <img src="https://toromecanicoeventos.cl/toro-mecanico/taca-taca-grande.webp" 
+                 alt="Toro Mecanico - Toro Mecánico para eventos en Santiago" 
+                 class="service-img"
+                 title="⚽ Taca Taca 8 Jugadores - 🥅 El clásico juego de mesa ahora más grande">
+            <h3 class="service-title">TACA TACA 8 JUGADORES</h3>
+            <p class="service-description-overlay">⚽El clásico juego de taca taca para eventos, fiestas y cumpleaños en Santiago🥅</p>
+        </div>
+        <div class="service-buttons">
+            <a href="#" class="btn btn-service">VER VIDEO</a>
+            <a href="#" class="btn btn-service">DETALLES DEL SERVICIO</a>
+        </div>
+    </div>
 
+    <div class="service-card">
+        <div class="service-image-container">
+            <img src="https://toromecanicoeventos.cl/toro-mecanico/yenga-gigante.webp" 
+                 alt="Toro Mecanico - Toro Mecánico para eventos en Santiago" 
+                 class="service-img"
+                 title="🏗️ Juego Ludico - 📦 Yenga gigante para cuempleaños">
+            <h3 class="service-title">YENGA GIGANTE</h3>
+            <p class="service-description-overlay">🏗️Diversión en equilibrio. Retira bloques con cuidado. ¡Demuestra tu habilidad!📦</p>
+        </div>
+        <div class="service-buttons">
+            <a href="#" class="btn btn-service">VER VIDEO</a>
+            <a href="#" class="btn btn-service">DETALLES DEL SERVICIO</a>
+        </div>
+    </div>
 
-               <div class="service-card">
-                   <div class="service-image-container">
-                       <img src="Toro Mecanico/juego-rayuela.webp" 
-                           alt="Toro Mecanico - Toro Mecánico para eventos en Santiago" 
-                           class="service-img"
-                           title="👟 Ariiendo de Rayuela - ⚡ El clásico juego Chileno">
-                       <h3 class="service-title">RAYUELA</h3>
-                       <p class="service-description-overlay">RAYUELA CLÁSICA, ¡SALTA ACERTA Y GANA! Divertida y tradicional disponible en Santiago</p>
-                   </div>
-                   <div class="service-buttons">
-                       <a href="#" class="btn btn-service">VER VIDEO</a>
-                       <a href="#" class="btn btn-service">DETALLES DEL SERVICIO</a>
-                   </div>
-               </div>
+    <div class="service-card">
+        <div class="service-image-container">
+            <img src="https://toromecanicoeventos.cl/toro-mecanico/taca-taca-futbol-mesa.webp" 
+                 alt="Toro Mecanico - Toro Mecánico para eventos en Santiago" 
+                 class="service-img"
+                 title="🥅 Taca Taca 4 Jugadores - ⚽ El clásico que nunca pasa de moda...">
+            <h3 class="service-title">TACA TACA 4 JUGADORES</h3>
+            <p class="service-description-overlay">🥅Golpea, ríe y compite. El clásico de toda fiesta. ¡Pura emoción en equipo!⚽</p>
+        </div>
+        <div class="service-buttons">
+            <a href="#" class="btn btn-service">VER VIDEO</a>
+            <a href="#" class="btn btn-service">DETALLES DEL SERVICIO</a>
+        </div>
+    </div>
 
-               <div class="service-card">
-                   <div class="service-image-container">
-                       <img src="Toro Mecanico/Arriendo-de-Arcade.webp" 
-                           alt="Toro Mecanico - Toro Mecánico para eventos en Santiago" 
-                           class="service-img"
-                           title="ARRIENDO DE ARCADES 🕹️ ¡VOLVEMOS A LOS 80'S!  👾 !COME FANTASMAS Y GANA¡ CON EL TRADICIONAL PAC-MAN ">
-                       <h3 class="service-title">ARCADE RETRO</h3>
-                       <p class="service-description-overlay">🌟 ARCADE RETRO: ¡VIAJE EN EL TIEMPO! 🕹️ INSERT COIN  TO START 🕹️</p>
-                   </div>
-                   <div class="service-buttons">
-                       <a href="#" class="btn btn-service">VER VIDEO</a>
-                       <a href="#" class="btn btn-service">DETALLES DEL SERVICIO</a>
-                   </div>
-               </div>
+    <div class="service-card">
+        <div class="service-image-container">
+            <img src="https://toromecanicoeventos.cl/toro-mecanico/air-hockey.webp" 
+                 alt="Toro Mecanico - Toro Mecánico para eventos en Santiago" 
+                 class="service-img"
+                 title="🏒 Arriendo Mesa de Air Hockey en Santiago - 🏑 Juego de mesa para eventos">
+            <h3 class="service-title">MESA DE HOCKEY</h3>
+            <p class="service-description-overlay">🏒AIR JOCKEY: ¡DUELO RÁPIDO! 2 JUGADORES REFLÉJOS Y PUNTERÍA🏑</p>
+        </div>
+        <div class="service-buttons">
+            <a href="#" class="btn btn-service">VER VIDEO</a>
+            <a href="#" class="btn btn-service">DETALLES DEL SERVICIO</a>
+        </div>
+    </div>
 
-               <div class="service-card">
-                   <div class="service-image-container">
-                       <img src="Toro Mecanico/Inflabe-de-los-minions.webp" 
-                           alt="Toro Mecanico - Toro Mecánico para eventos en Santiago" 
-                           class="service-img"
-                           title="🎽Arriendo de Juegos Inflables en forma de Minions🟡">
-                       <h3 class="service-title">INFLABLE DE LOS MINIONS</h3>
-                       <p class="service-description-overlay"> 🎽 Juego Inflable minions 5x4x5 metros de alto. !Banana, mi want banana¡🟡</p>
-                   </div>
-                   <div class="service-buttons">
-                       <a href="#" class="btn btn-service">VER VIDEO</a>
-                       <a href="#" class="btn btn-service">DETALLES DEL SERVICIO</a>
-                   </div>
-               </div>
+    <div class="service-card">
+        <div class="service-image-container">
+            <img src="https://toromecanicoeventos.cl/toro-mecanico/mesa-ping-pong.webp" 
+                 alt="Toro Mecanico - Toro Mecánico para eventos en Santiago" 
+                 class="service-img"
+                 title="🏓 Juego de Mesa de Ping Pong 🏓">
+            <h3 class="service-title">MESA DE PING PONG</h3>
+            <p class="service-description-overlay">🏓RÁPIDO, DIVERTIDO GOLPEA, REBOTA Y GANA. ¿DOS MÁS O MUERE MUERE?🏓</p>
+        </div>
+        <div class="service-buttons">
+            <a href="#" class="btn btn-service">VER VIDEO</a>
+            <a href="#" class="btn btn-service">DETALLES DEL SERVICIO</a>
+        </div>
+    </div>
 
-               <div class="service-card">
-                   <div class="service-image-container">
-                       <img src="Toro Mecanico/Arriendo-carro-de-cabritas.webp" 
-                           alt="Toro Mecanico - Toro Mecánico para eventos en Santiago" 
-                           class="service-img"
-                           title="Arriendo de 🍿 ¡CARRO DE CABRITAS! 🔥 CALIENTITAS Y CRUJIENTES 🎪 IDEAL PARA TUS EVENTOS">
-                       <h3 class="service-title">CARRO DE ALGODONES</h3>
-                       <p class="service-description-overlay">🍿 ¡CARRO DE CABRITAS! 🔥 CALIENTITAS Y CRUJIENTES 🎪 IDEAL PARA TUS EVENTOS  en Santiago</p>
-                   </div>
-                   <div class="service-buttons">
-                       <a href="#" class="btn btn-service">VER VIDEO</a>
-                       <a href="#" class="btn btn-service">DETALLES DEL SERVICIO</a>
-                   </div>
-               </div>
+    <div class="service-card">
+        <div class="service-image-container">
+            <img src="https://toromecanicoeventos.cl/toro-mecanico/juego-de-la-rana.webp" 
+                 alt="Toro Mecanico - Toro Mecánico para eventos en Santiago" 
+                 class="service-img"
+                 title="🐸 Juego Tradicional - 🎯El clásico juego de acertar a la rana con discos metálicos 🎯">
+            <h3 class="service-title">JUEGO DE LA RANA</h3>
+            <p class="service-description-overlay">🐸 RANA CLÁSICA 🐸. 🎯LANZA PRUEBA TU PUNTERÍA, Tienes 3 LANZAMIENTOS. ¡GANA PREMIO!🎯</p>
+        </div>
+        <div class="service-buttons">
+            <a href="#" class="btn btn-service">VER VIDEO</a>
+            <a href="#" class="btn btn-service">DETALLES DEL SERVICIO</a>
+        </div>
+    </div>
 
-               <div class="service-card">
-                   <div class="service-image-container">
-                       <img src="Toro Mecanico/carro-algodones.webp" 
-                           alt="Toro Mecanico - Toro Mecánico para eventos en Santiago" 
-                           class="service-img"
-                           title="🍭 ARRIENDO CARRO DE ALGODONES 🌈 DULCE Y COLORIDO 🎪 IDEAL PARA FIESTAS INFANTILES  ">
-                       <h3 class="service-title">CARRO DE ALGODONES</h3>
-                       <p class="service-description-overlay">🍭 ARRIENDO CARRO DE ALGODONES EN SANTIAGO 🌈 DULCE Y COLORIDO 🎪 IDEAL PARA FIESTAS INFANTILES</p>
-                   </div>
-                   <div class="service-buttons">
-                       <a href="#" class="btn btn-service">VER VIDEO</a>
-                       <a href="#" class="btn btn-service">DETALLES DEL SERVICIO</a>
-                   </div>
-               </div>
+    <div class="service-card">
+        <div class="service-image-container">
+            <img src="https://toromecanicoeventos.cl/toro-mecanico/juego-rayuela.webp" 
+                 alt="Toro Mecanico - Toro Mecánico para eventos en Santiago" 
+                 class="service-img"
+                 title="👟 Ariiendo de Rayuela - ⚡ El clásico juego Chileno">
+            <h3 class="service-title">RAYUELA</h3>
+            <p class="service-description-overlay">RAYUELA CLÁSICA, ¡SALTA ACERTA Y GANA! Divertida y tradicional disponible en Santiago</p>
+        </div>
+        <div class="service-buttons">
+            <a href="#" class="btn btn-service">VER VIDEO</a>
+            <a href="#" class="btn btn-service">DETALLES DEL SERVICIO</a>
+        </div>
+    </div>
 
-               <div class="service-card">
-                   <div class="service-image-container">
-                       <img src="Toro Mecanico/Camara-360.webp" 
-                           alt="Toro Mecanico - Toro Mecánico para eventos en Santiago" 
-                           class="service-img"
-                           title="🤳 Arriendo de Cabina Fotográfica 📸 ¿Tu mejor cara? ¡Demuéstralo aquí!👯">
-                       <h3 class="service-title">CABINA FOTOGRAFICA</h3>
-                       <p class="service-description-overlay">👗👔 ¡Vístete como quieras! 🤳 Entra, disfrazate, haz caras ¡y llévate recuerdos épicos!📸</p>
-                   </div>
-                   <div class="service-buttons">
-                       <a href="#" class="btn btn-service">VER VIDEO</a>
-                       <a href="#" class="btn btn-service">DETALLES DEL SERVICIO</a>
-                   </div>
-               </div>
+    <div class="service-card">
+        <div class="service-image-container">
+            <img src="https://toromecanicoeventos.cl/toro-mecanico/Arriendo-de-Arcade.webp" 
+                 alt="Toro Mecanico - Toro Mecánico para eventos en Santiago" 
+                 class="service-img"
+                 title="ARRIENDO DE ARCADES 🕹️ ¡VOLVEMOS A LOS 80'S! 👾 !COME FANTASMAS Y GANA¡ CON EL TRADICIONAL PAC-MAN ">
+            <h3 class="service-title">ARCADE RETRO</h3>
+            <p class="service-description-overlay">🌟 ARCADE RETRO: ¡VIAJE EN EL TIEMPO! 🕹️ INSERT COIN TO START 🕹️</p>
+        </div>
+        <div class="service-buttons">
+            <a href="#" class="btn btn-service">VER VIDEO</a>
+            <a href="#" class="btn btn-service">DETALLES DEL SERVICIO</a>
+        </div>
+    </div>
 
-               <div class="service-card">
-                   <div class="service-image-container">
-                       <img src="Toro Mecanico/Arriendo-de-cabina-fotografica.webp" 
-                           alt="Toro Mecanico - Toro Mecánico para eventos en Santiago" 
-                           class="service-img"
-                           title="🎥 Arriendo de Camara 360 🔄 ¿Tu mejor cara? ¡Demuéstralo aquí!👯">
-                       <h3 class="service-title">CAMARA 360</h3>
-                       <p class="service-description-overlay">📸 ¡CÁMARA 360 🔄 GRABA TODOS TUS ÁNGULOS IDEAL PARA EVENTOS: 💍bodas, 🏈deportivos y 🎉cumpleaños en Santiago</p>
-                   </div>
-                   <div class="service-buttons">
-                       <a href="#" class="btn btn-service">VER VIDEO</a>
-                       <a href="#" class="btn btn-service">DETALLES DEL SERVICIO</a>
-                   </div>
-               </div>
-           </div>
-       </div>
-   </section>
+    <div class="service-card">
+        <div class="service-image-container">
+            <img src="https://toromecanicoeventos.cl/toro-mecanico/Inflabe-de-los-minions.webp" 
+                 alt="Toro Mecanico - Toro Mecánico para eventos en Santiago" 
+                 class="service-img"
+                 title="🎽Arriendo de Juegos Inflables en forma de Minions🟡">
+            <h3 class="service-title">INFLABLE DE LOS MINIONS</h3>
+            <p class="service-description-overlay"> 🎽 Juego Inflable minions 5x4x5 metros de alto. !Banana, mi want banana¡🟡</p>
+        </div>
+        <div class="service-buttons">
+            <a href="#" class="btn btn-service">VER VIDEO</a>
+            <a href="#" class="btn btn-service">DETALLES DEL SERVICIO</a>
+        </div>
+    </div>
+
+    <div class="service-card">
+        <div class="service-image-container">
+            <img src="https://toromecanicoeventos.cl/toro-mecanico/Arriendo-carro-de-cabritas.webp" 
+                 alt="Toro Mecanico - Toro Mecánico para eventos en Santiago" 
+                 class="service-img"
+                 title="Arriendo de 🍿 ¡CARRO DE CABRITAS! 🔥 CALIENTITAS Y CRUJIENTES 🎪 IDEAL PARA TUS EVENTOS">
+            <h3 class="service-title">CARRO DE CABRITAS</h3>
+            <p class="service-description-overlay">🍿 ¡CARRO DE CABRITAS! 🔥 CALIENTITAS Y CRUJIENTES 🎪 IDEAL PARA TUS EVENTOS en Santiago</p>
+        </div>
+        <div class="service-buttons">
+            <a href="#" class="btn btn-service">VER VIDEO</a>
+            <a href="#" class="btn btn-service">DETALLES DEL SERVICIO</a>
+        </div>
+    </div>
+
+    <div class="service-card">
+        <div class="service-image-container">
+            <img src="https://toromecanicoeventos.cl/toro-mecanico/carro-algodones.webp" 
+                 alt="Toro Mecanico - Toro Mecánico para eventos en Santiago" 
+                 class="service-img"
+                 title="🍭 ARRIENDO CARRO DE ALGODONES 🌈 DULCE Y COLORIDO 🎪 IDEAL PARA FIESTAS INFANTILES ">
+            <h3 class="service-title">CARRO DE ALGODONES</h3>
+            <p class="service-description-overlay">🍭 ARRIENDO CARRO DE ALGODONES EN SANTIAGO 🌈 DULCE Y COLORIDO 🎪 IDEAL PARA FIESTAS INFANTILES</p>
+        </div>
+        <div class="service-buttons">
+            <a href="#" class="btn btn-service">VER VIDEO</a>
+            <a href="#" class="btn btn-service">DETALLES DEL SERVICIO</a>
+        </div>
+    </div>
+
+    <div class="service-card">
+        <div class="service-image-container">
+            <img src="https://toromecanicoeventos.cl/toro-mecanico/Camara-360.webp" 
+                 alt="Toro Mecanico - Toro Mecánico para eventos en Santiago" 
+                 class="service-img"
+                 title="🤳 Arriendo de Cabina Fotográfica 📸 ¿Tu mejor cara? ¡Demuéstralo aquí!👯">
+            <h3 class="service-title">CABINA FOTOGRAFICA</h3>
+            <p class="service-description-overlay">👗👔 ¡Vístete como quieras! 🤳 Entra, disfrazate, haz caras ¡y llévate recuerdos épicos!📸</p>
+        </div>
+        <div class="service-buttons">
+            <a href="#" class="btn btn-service">VER VIDEO</a>
+            <a href="#" class="btn btn-service">DETALLES DEL SERVICIO</a>
+        </div>
+    </div>
+
+    <div class="service-card">
+        <div class="service-image-container">
+            <img src="https://toromecanicoeventos.cl/toro-mecanico/Arriendo-de-cabina-fotografica.webp" 
+                 alt="Toro Mecanico - Toro Mecánico para eventos en Santiago" 
+                 class="service-img"
+                 title="🎥 Arriendo de Camara 360 🔄 ¿Tu mejor cara? ¡Demuéstralo aquí!👯">
+            <h3 class="service-title">CAMARA 360</h3>
+            <p class="service-description-overlay">📸 ¡CÁMARA 360 🔄 GRABA TODOS TUS ÁNGULOS IDEAL PARA EVENTOS: 💍bodas, 🏈deportivos y 🎉cumpleaños en Santiago</p>
+        </div>
+        <div class="service-buttons">
+            <a href="#" class="btn btn-service">VER VIDEO</a>
+            <a href="#" class="btn btn-service">DETALLES DEL SERVICIO</a>
+        </div>
+    </div>
+</div>
    
 <!-- Bloque de navegación adicional -->
 <div style="background-color: #000; color: white; padding: 40px 0;">
